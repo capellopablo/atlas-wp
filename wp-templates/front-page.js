@@ -25,7 +25,7 @@ export default function Component(props) {
 
       <main className="container">
         <EntryHeader title="Welcome to the Faust Scaffold Blueprint" />
-
+        <h3>Buil Test</h3>
         <section className={style.cardGrid}>
           <Link
             href="https://faustjs.org"
