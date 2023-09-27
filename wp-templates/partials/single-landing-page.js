@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import Head from "next/head";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 import EntryHeader from "../../components/entry-header";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
@@ -9,7 +9,7 @@ export default function Component(props) {
 
   console.log("props: ", props);
   const searchParams = useSearchParams();
-  const source = searchParams.get('utm_source');
+  const source = searchParams.get("utm_source");
 
   if (props.loading) {
     return <>Loading...</>;
