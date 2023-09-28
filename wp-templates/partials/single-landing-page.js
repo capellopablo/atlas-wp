@@ -18,7 +18,8 @@ export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =
     props.data.generalSettings;
   const menuItems = props.data.primaryMenuItems.nodes;
-  const { title, content, date /* author */ } = props.data.landingPage;
+  const settings = props.data.siteSettings;
+  const { title, content, date } = props.data.landingPage;
 
   return (
     <>
@@ -33,13 +34,33 @@ export default function Component(props) {
       />
 
       <main className="container">
-        <EntryHeader
-          title={title}
-          date={date} /* author={author.node.name} */
-        />
+        <EntryHeader title={title} date={date} />
         <div dangerouslySetInnerHTML={{ __html: content }} />
 
-        <strong>searchParams: {source}</strong>
+        {source && (
+          <div>
+            <hr />
+            <strong>UTM Source</strong>
+            <ul>
+              <li>utm_source: {source}</li>
+            </ul>
+          </div>
+        )}
+        <hr />
+
+        <div>
+          <strong>GraphQL from Back with Context Post ID</strong>
+          <ul>
+            <li>public_url: {settings.public_url}</li>
+            <li>ajax_url: {settings.ajax_url}</li>
+            <li>update_metadata_nonce: {settings.update_metadata_nonce}</li>
+            <li>apply_coupon_nonce: {settings.apply_coupon_nonce}</li>
+            <li>remove_coupon_nonce: {settings.remove_coupon_nonce}</li>
+            <li>get_cart_nonce: {settings.get_cart_nonce}</li>
+            <li>get_coupons_nonce: {settings.get_coupons_nonce}</li>
+            <li>post_type: {settings.post_type}</li>
+          </ul>
+        </div>
       </main>
 
       <Footer />
@@ -64,6 +85,16 @@ Component.query = gql`
       editorBlocks {
         name
       }
+    }
+    siteSettings(id: $databaseId) {
+      public_url
+      ajax_url
+      update_metadata_nonce
+      apply_coupon_nonce
+      remove_coupon_nonce
+      get_cart_nonce
+      get_coupons_nonce
+      post_type
     }
     ...HeaderFragment
   }
