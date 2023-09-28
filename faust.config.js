@@ -9,4 +9,12 @@ export default setConfig({
   templates,
   experimentalPlugins: [],
   possibleTypes,
+  blocks: [
+    // Define your block configurations here
+    {
+      // name,
+      // component: Define the path to your component
+    },
+    // Add more block configurations as needed
+  ],
 });
