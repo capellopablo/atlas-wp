@@ -31,7 +31,6 @@ export default function Component(props) {
       />
 
       <main className="container">
-        <EntryHeader title={title} date={date} author={author.node.name} />
         <WordPressBlocksViewer blocks={editorBlocks} />
       </main>
 
@@ -51,6 +50,7 @@ Component.query = gql`
   ${Header.fragments.entry}
   ${blocks.UbCallToActionBlock.fragments.entry}
   ${blocks.CoreParagraph.fragments.entry}
+  ${blocks.AprendeBlocksHero.fragments.entry}
   ${blocks.AprendeBlocksDiploma.fragments.entry}
   ${blocks.AprendeBlocksBenefits.fragments.entry}
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
@@ -71,6 +71,7 @@ Component.query = gql`
         parentClientId
         ...UbCallToActionBlockFragment
         ...CoreParagraphFragment
+        ...AprendeBlocksHeroFragment
         ...AprendeBlocksDiplomaFragment
         ...AprendeBlocksBenefitsFragment
       }

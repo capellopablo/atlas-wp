@@ -22,8 +22,8 @@ export default function AprendeBlocksHero(props) {
             <div className="b-hero-block-foreground">
                 <div className="content content__heading">
                     <h1 className="c-heading">
-                        Fórmate como Skincare Specialist <br/>
-                        <span className="c-heading__red">Emprende en Estados Unidos</span>
+                      {attributes.title} <br/>
+                        <span className="c-heading__red">{attributes.subtitle}</span>
                     </h1>
                     <div className="content_subtitle">
                         <p>Aprende a aplicar tratamientos y cosméticos acordes a los tipos de piel, para ofrecer servicios de alta calidad y generar ingresos extra haciendo lo que te apasiona.</p>
@@ -43,6 +43,7 @@ AprendeBlocksHero.fragments = {
     fragment AprendeBlocksHeroFragment on AprendeBlocksHero {
       attributes {
         title
+        subtitle
         className
       }
     }
