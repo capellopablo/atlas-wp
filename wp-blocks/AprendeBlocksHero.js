@@ -1,6 +1,9 @@
-import Form from '../../wp-blocks/Form';
+import { gql } from "@apollo/client";
+import Form from './AprendeBlocksForm';
 
-export default function HeroBlock({ props }) {
+export default function AprendeBlocksHero(props) {
+  const attributes = props.attributes;
+
   return (
     <div className="b-hero">
         <div className="b-hero-container">
@@ -34,3 +37,15 @@ export default function HeroBlock({ props }) {
     </div>
   );
 }
+
+AprendeBlocksHero.fragments = {
+  entry: gql`
+    fragment AprendeBlocksHeroFragment on AprendeBlocksHero {
+      attributes {
+        title
+        className
+      }
+    }
+  `,
+  key: `AprendeBlocksHeroFragment`,
+};

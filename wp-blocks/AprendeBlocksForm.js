@@ -53,7 +53,9 @@ export default function Form() {
         </div>
 
         <div className="r-form-submit">
-          <button type="submit">Submit</button>
+          <button type="submit">
+            <span>¡Quiero Conocer Precios!</span>
+          </button>
         </div>
       </form>
 

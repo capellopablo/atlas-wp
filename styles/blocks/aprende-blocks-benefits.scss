@@ -5,8 +5,16 @@
     &-grid {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         margin-left: -12px;
         margin-right: -12px;
+
+        div {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
 
         span {
             color: #111457;
