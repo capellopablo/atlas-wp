@@ -1,0 +1,207 @@
+header.header_box {
+  background-color: #fff;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  position: relative;
+  z-index: 998;
+}
+header.header_box .contents {
+  background-color: inherit;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: top 0.3s ease-in-out;
+}
+header.header_box .header {
+  align-items: center;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  position: relative;
+}
+@media (min-width: 900px) {
+  header.header_box .header {
+    gap: 40px;
+  }
+}
+header.header_box .header_row {
+  align-items: center;
+  display: flex;
+}
+@media (max-width: 900px) {
+  header.header_box .header_campus-text .campus a {
+    background-color: #fff;
+    color: var(--aprende--primary);
+    display: grid;
+    margin: 0 auto;
+    padding: 14px;
+    place-items: center;
+  }
+  header.header_box .header_campus-text .campus a:hover {
+    background-color: #fff;
+  }
+}
+header.header_box .logo {
+  background-size: contain;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 31.08px;
+  margin-right: 40px;
+  position: relative;
+  top: -2px;
+}
+@media (max-width: 900px) {
+  header.header_box .logo {
+    width: 193px;
+  }
+}
+@media (min-width: 900px) {
+  header.header_box .logo {
+    height: 32px;
+    margin-right: 0;
+    margin-top: 3px;
+    width: 206px;
+  }
+}
+header.header_box .menu_box {
+  align-self: stretch;
+  margin-right: auto;
+}
+header.header_box .menu_btn {
+  border-radius: 50%;
+  color: #db0f3c;
+  display: none;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+header.header_box .menu_btn span,
+header.header_box .menu_btn:after,
+header.header_box .menu_btn:before {
+  background-color: #1b2631;
+  border-radius: 3px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  margin-left: 2px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  transition: 0.2s;
+  width: 20px;
+}
+header.header_box .menu_btn:after {
+  margin-top: -7px;
+}
+header.header_box .menu_btn:before {
+  margin-top: 5px;
+}
+header.header_box .phone {
+  align-items: center;
+  color: #2e4053;
+  display: flex;
+  gap: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+header.header_box .phone:hover {
+  text-decoration: underline;
+}
+@media (min-width: 900px) {
+  header.header_box .phone {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+  }
+}
+header.header_box .icon {
+  background-size: contain;
+  display: inline-block;
+  height: 18px;
+  margin-right: 4px;
+  vertical-align: middle;
+  width: 20px;
+}
+header.header_box .virtual {
+  margin: 0 30px 0 0;
+  white-space: nowrap;
+}
+header.header_box .virtual span {
+  padding: 0;
+}
+header.header_box .images {
+  align-items: stretch;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+header.header_box .image {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: center;
+  max-width: 200px;
+  padding: 0 15px;
+}
+header.header_box .image img {
+  display: block;
+  height: auto;
+  max-height: 70px;
+  max-width: 100%;
+  width: auto;
+}
+@media (max-width: 900px) {
+  header.header_box.is_expanded {
+    z-index: 9999;
+  }
+  header.header_box.is_expanded .menu_box {
+    opacity: 1;
+    transform: scaleY(1);
+    visibility: visible;
+  }
+  header.header_box.is_expanded .menu_btn:after,
+  header.header_box.is_expanded .menu_btn:before {
+    border-bottom: none;
+    margin-top: -1px;
+    transform: rotate(45deg);
+    width: 19px;
+  }
+  header.header_box.is_expanded .menu_btn:after {
+    transform: rotate(-45deg);
+  }
+  header.header_box.is_expanded .menu_btn span {
+    opacity: 0;
+  }
+  header.header_box .c-icon {
+    display: none;
+  }
+  header.header_box .menu_box {
+    margin: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    visibility: hidden;
+  }
+  header.header_box .menu_btn {
+    display: block;
+  }
+  header.header_box .logo {
+    margin: 2px 0 0;
+  }
+  header.header_box .virtual {
+    display: none;
+  }
+  header.header_box .image {
+    padding: 0 5px;
+  }
+}
