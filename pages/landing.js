@@ -5,6 +5,7 @@ import { WordPressBlocksViewer } from '@faustwp/blocks';
 import { flatListToHierarchical } from '@faustwp/core';
 import HeaderBlock from "../components/landing/header";
 import HeroBlock from "../components/landing/hero";
+import BenefitsBlock from "../../wp-blocks/Form";
 
 export default function Landing(props) {
 console.log(props)

@@ -18,7 +18,8 @@ export default function HeroBlock({ props }) {
 
             <div className="b-hero-block-foreground">
                 <div className="content content__heading">
-                    <h1 className="c-heading">Fórmate como Skincare Specialist 
+                    <h1 className="c-heading">
+                        Fórmate como Skincare Specialist <br/>
                         <span className="c-heading__red">Emprende en Estados Unidos</span>
                     </h1>
                     <div className="content_subtitle">
