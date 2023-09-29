@@ -32,9 +32,15 @@
             width: 100%;
             background-color: #fff;
             border-radius: 6px;
-            font-family: Source Sans Pro,sans-serif;
+            font-size: 16px;
+            font-family: "Source Sans Pro", sans-serif;
             padding: 9px 15px;
             border: 1px solid rgba(0, 0, 0, 0.87);
+            -webkit-tap-highlight-color: transparent;
+
+            &:focus {
+                outline: 0px;
+            }
         }
     }
 
@@ -50,18 +56,24 @@
             padding: 14px 29px;
             width: 100%;
             background-color: rgb(219, 15, 60);
-            color: white;
             border: none;
             align-items: center;
             border: none;
             cursor: pointer;
             display: flex;
-            font-size: 16px;
-            font-weight: 600;
+          
             justify-content: center;
             outline: none;
             text-decoration: none;
-            white-space: nowrap;
+            
+
+            span {
+                color: white;
+                white-space: nowrap;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: "Source Sans Pro", sans-serif;
+            }
         }
     }
 
@@ -70,6 +82,7 @@
         font-weight: 400;
         line-height: 18px;
         color: rgb(27, 38, 49);
+        padding: 6px 0 0;
     }
 
 }

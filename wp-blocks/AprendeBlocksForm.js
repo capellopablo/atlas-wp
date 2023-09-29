@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 
 export default function Form() {
-  // Define state variables for form fields
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-  // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log('Form submitted with the following data:');
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Email:', email);
 
     setFirstName('');
     setLastName('');
@@ -60,7 +53,9 @@ export default function Form() {
         </div>
 
         <div className="r-form-submit">
-          <button type="submit">Submit</button>
+          <button type="submit">
+            <span>¡Quiero Conocer Precios!</span>
+          </button>
         </div>
       </form>
 
