@@ -6,16 +6,16 @@ export default function Header({ siteTitle, siteDescription, menuItems }) {
   return (
     <>
       <header
-        class="header_box layout-simple"
+        className="header_box layout-simple"
         data-apt-e-seen="1"
         data-apt-key="header-l-simple"
       >
-        <div class="contents">
-          <div class="header">
-            <div class="images">
+        <div className="contents">
+          <div className="header">
+            <div className="images">
               <Link href="/">
                 <div
-                  class="logo"
+                  className="logo"
                   style={{
                     backgroundImage: `url(${logo.src})`,
                     backgroundSize: "contain",

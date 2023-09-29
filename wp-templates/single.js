@@ -1,11 +1,9 @@
 import { gql } from "@apollo/client";
 import Head from "next/head";
-import EntryHeader from "../components/entry-header";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import blocks from '../wp-blocks';
 import { WordPressBlocksViewer } from '@faustwp/blocks';
-import { flatListToHierarchical } from '@faustwp/core';
 export default function Component(props) {
 
   if (props.loading) {
@@ -13,10 +11,9 @@ export default function Component(props) {
   }
 
   const { title: siteTitle, description: siteDescription } = props.data.generalSettings;
-  const { title, date, author, editorBlocks } = props.data.post;
+  const { title, editorBlocks } = props.data.post;
   const menuItems = props.data.primaryMenuItems.nodes;
 
-  //const blocks = flatListToHierarchical(editorBlocks, {childrenKey: 'innerBlocks'});
 
   return (
     <>
@@ -48,8 +45,6 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
   ${Header.fragments.entry}
-  ${blocks.UbCallToActionBlock.fragments.entry}
-  ${blocks.CoreParagraph.fragments.entry}
   ${blocks.AprendeBlocksHero.fragments.entry}
   ${blocks.AprendeBlocksDiploma.fragments.entry}
   ${blocks.AprendeBlocksBenefits.fragments.entry}
@@ -69,8 +64,6 @@ Component.query = gql`
         renderedHtml
         id: clientId
         parentClientId
-        ...UbCallToActionBlockFragment
-        ...CoreParagraphFragment
         ...AprendeBlocksHeroFragment
         ...AprendeBlocksDiplomaFragment
         ...AprendeBlocksBenefitsFragment
