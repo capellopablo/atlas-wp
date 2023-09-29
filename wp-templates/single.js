@@ -51,6 +51,7 @@ Component.query = gql`
   ${Header.fragments.entry}
   ${blocks.UbCallToActionBlock.fragments.entry}
   ${blocks.CoreParagraph.fragments.entry}
+  ${blocks.AprendeBlocksDiploma.fragments.entry}
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
     post(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
@@ -69,6 +70,7 @@ Component.query = gql`
         parentClientId
         ...UbCallToActionBlockFragment
         ...CoreParagraphFragment
+        ...AprendeBlocksDiplomaFragment
       }
     }
     ...HeaderFragment
