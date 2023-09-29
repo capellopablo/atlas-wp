@@ -10,8 +10,6 @@ export default function UbCallToActionBlock(props) {
       openInNewTab,
     } = props.attributes;
 
-    console.log('UbCallToActionBlock', props);
-
     return (
       <div className={props.className}>
         <div
@@ -74,3 +72,4 @@ export default function UbCallToActionBlock(props) {
       }
     `,
   };
+  

@@ -1,0 +1,17 @@
+.header {
+    height: 70px;
+    background-color: inherit;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    display: block;
+
+    .logo {
+        background-size: contain;
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        height: 31.08px;
+        margin-right: 40px;
+        position: relative;
+        top: -2px;
+    }
+}
