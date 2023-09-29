@@ -38,6 +38,8 @@ export default function AprendeBlocksHero(props) {
   );
 }
 
+AprendeBlocksHero.displayName = 'AprendeBlocksHero';
+
 AprendeBlocksHero.fragments = {
   entry: gql`
     fragment AprendeBlocksHeroFragment on AprendeBlocksHero {

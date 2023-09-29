@@ -77,6 +77,8 @@ export default function AprendeBlocksDiploma(props) {
   );
 }
 
+AprendeBlocksDiploma.displayName = 'AprendeBlocksDiploma';
+
 AprendeBlocksDiploma.fragments = {
   entry: gql`
     fragment AprendeBlocksDiplomaFragment on AprendeBlocksDiploma {

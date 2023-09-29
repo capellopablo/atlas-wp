@@ -31,6 +31,8 @@ export default function AprendeBlocksBenefits(props) {
   );
 }
 
+AprendeBlocksBenefits.displayName = 'AprendeBlocksBenefits';
+
 AprendeBlocksBenefits.fragments = {
   entry: gql`
     fragment AprendeBlocksBenefitsFragment on AprendeBlocksBenefits {
