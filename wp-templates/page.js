@@ -27,7 +27,7 @@ export default function Component(props) {
         menuItems={menuItems}
       />
 
-      <main className="container">
+      <main>
         <EntryHeader title={title} />
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </main>

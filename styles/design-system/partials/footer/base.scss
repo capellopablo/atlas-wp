@@ -1,0 +1,190 @@
+// -- Footer --
+@use "sass:map";
+
+.footer {
+
+	&-grid {
+		background-color: var(--aprende--secondary-700);
+		color: $white;
+		padding: 0 map.get($spacing, "m");
+
+		&_simple {
+			height: 99px;
+			background-color: var(--aprende--secondary-700);
+			margin: 0 map.get($spacing, "xl");
+
+			@include breakpoint(md) {
+				margin: 0 map.get($spacing, "3xl");
+				height: 66px;
+			}
+
+			&__row {
+				width: 100%;
+				flex-direction: column-reverse;
+				font-weight: $font-regular;
+
+				@include breakpoint(md) {
+					flex-direction: row;
+				}
+
+				&.has-simple-tyc {
+					gap: map.get($grid-gutters, "sm");
+
+					@include breakpoint(md) {
+						justify-content: space-between;
+						gap: 0;
+					}
+				}
+			}
+
+			&__tyc {
+
+				ul {
+					gap: map.get($grid-gutters, "md");
+				}
+			}
+		}
+
+		&_details {
+			flex-direction: column;
+			border-top: 1px solid $white;
+			padding-bottom: map.get($spacing, "xl");
+			gap: map.get($grid-gutters, "md");
+
+			&:first-child {
+				border-top: none;
+			}
+
+			&_copyright {
+				white-space: nowrap;
+
+				@include breakpoint(max-md) {
+					padding-top: map.get($spacing, "xs");
+				}
+
+			}
+
+			&__has-apps {
+				padding-top: map.get($spacing, "xl");
+			}
+		}
+
+		&_apps {
+			gap: map.get($spacing, "xl");
+		}
+
+		&_app {
+
+			img {
+				max-width: 95px;
+				min-height: 36px;
+			}
+
+		}
+
+		&_social {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			column-gap: map.get($spacing, "xl");
+
+			&_item a {
+				display: flex;
+				flex-direction: row;
+
+				@include breakpoint(max-md) {
+					padding: 0 0 map.get($spacing, "xs");
+				}
+
+				@include breakpoint(md) {
+					gap: map.get($spacing, "xs");
+				}
+
+				.c-icon {
+					padding: map.get($spacing, "3xs");
+
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+
+		a.text-s {
+			text-decoration: none;
+			padding-bottom: map.get($spacing, "3xs");
+
+			&:hover {
+				color: var(--aprende--secondary-200);
+				text-decoration: underline;
+			}
+		}
+
+		@include breakpoint(md) {
+
+			&_details {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: map.get($spacing, "m") 0;
+
+				&__has-apps {
+					justify-content: flex-end;
+					gap: map.get($grid-gutters, "md");
+				}
+
+				&_tyc-and-copyright {
+					display: flex;
+					gap: map.get($grid-gutters, "md");
+					white-space: nowrap;
+				}
+			}
+
+			&_social {
+				column-gap: map.get($grid-gutters, "md");
+
+				&_item {
+					min-width: 85px;
+				}
+			}
+
+			&_apps {
+				gap: map.get($grid-gutters, "md");
+				padding: 0;
+			}
+
+		}
+
+		@include breakpoint(lg) {
+
+			&_details {
+				flex-direction: row;
+			}
+
+			&_social {
+				margin-right: auto;
+			}
+
+			&_apps {
+				margin-right: auto;
+			}
+		}
+
+
+		&_container {
+			padding: map.get($spacing, "xl") 0 0 0;
+
+			@include breakpoint(md) {
+				display: flex;
+				justify-content: space-between;
+			}
+
+		}
+
+		&_row {
+			margin-bottom: map.get($spacing, "l");
+			padding-right: map.get($spacing, "m");
+		}
+	}
+
+}

@@ -1,0 +1,559 @@
+/** Config */
+@use "sass:map";
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+
+$tablet-breakpoint: 1100px;
+
+.no-scroll {
+	overflow-y: hidden;
+}
+
+// Mega menu desktop
+
+@include breakpoint(min-width, $tablet-breakpoint) {
+
+	header {
+
+		.header {
+
+			&-container {
+				max-width: 100%;
+				margin: 0 auto;
+				font-size: initial;
+				font-weight: initial;
+				line-height: initial;
+
+				@include breakpoint(max-width, 1365px) {
+					max-width: 1280px;
+				}
+
+				@include breakpoint(min-width, 1366px) {
+					max-width: 1366px;
+				}
+			}
+
+			&-mega-menu {
+				height: 70px;
+				flex-shrink: 0;
+				overflow-y: hidden;
+
+				@include breakpoint(max-width, $tablet-breakpoint) {
+					display: none;
+				}
+
+				@include breakpoint(max-width, 1279px) {
+					flex-shrink: 1;
+				}
+
+				&_outer-container {
+					width: 100vw;
+					height: fit-content;
+					max-height: 650px;
+					background: linear-gradient(to right, $white 70%, var(--aprende--tertiary-100) 30%);
+				}
+
+				&_inner-container {
+					padding-right: 0 !important;
+					padding-left: map.get($spacing, "l");
+				}
+
+				&_main-item {
+
+					&:hover {
+						font-weight: $font-semi-bold;
+					}
+
+					.c-icon {
+						transition: transform 0.5s ease;
+					}
+
+					&.selected {
+						font-weight: $font-semi-bold;
+
+						a {
+							border-top: 2px solid var(--aprende--primary-900);
+							padding-top: map.get($spacing, "l");
+
+							.c-icon {
+								transform: rotate(180deg);
+								height: 24px;
+								width: 24px;
+
+								svg {
+
+									g {
+
+										path {
+											fill: var(--aprende--primary-900) !important;
+										}
+									}
+								}
+							}
+						}
+					}
+
+					&:not(.selected) {
+
+						a {
+							border-top: 2px solid $white;
+
+							.c.icon {
+								background-color: var(--aprende--secondary-700);
+								height: 24px;
+								width: 24px;
+							}
+						}
+					}
+
+					a {
+						text-decoration: none;
+					}
+
+					&.menu {
+
+						&_empty {
+
+							a {
+
+								&::after {
+									display: none;
+								}
+							}
+
+						}
+					}
+				}
+
+				&_item-button {
+					min-width: 100%;
+				}
+
+				&_sub-item-button {
+					min-width: 100%;
+				}
+
+				&_wrapper {
+					display: flex;
+
+					.header-mega-menu {
+
+						&_item {
+
+							&:not(:first-child) {
+								margin-top: map.get($spacing, "s");
+							}
+						}
+					}
+				}
+
+				// Item container
+				&_item-container {
+					display: block;
+					opacity: 0;
+					visibility: hidden;
+					transition: opacity 0.5s ease;
+					width: 100vw;
+					height: 100vh;
+
+					&.active {
+						position: absolute;
+						top: 70px;
+						left: 0;
+						width: 100vw;
+						color: var(--aprende--secondary-600);
+						background: rgba(51, 51, 51, 0.75);
+						opacity: 1;
+						visibility: visible;
+						transform: translateY(0);
+						box-shadow: 0 6px 12px 0 rgba(9, 13, 16, 0.16);
+
+						@include breakpoint(max-width, 1280px) {
+							height: calc(100vh + 500px);
+						}
+					}
+
+					&:not(.active) {
+						display: none;
+
+						.header-mega-menu {
+
+							&_item,
+							&_sub-item-container {
+								display: none;
+							}
+						}
+					}
+
+					a {
+						text-decoration: none;
+					}
+
+					&-wrapper {
+
+						&.menu {
+
+							&-item-wrapper {
+								overflow: hidden;
+
+								@include between-breakpoints-widths(0, 1279px) {
+									min-width: auto;
+								}
+
+								@include breakpoint(min-width, 1280px) {
+									width: calc(316px - 24px);
+								}
+
+								@include breakpoint(min-width, 1366px) {
+									width: calc(359px - 24px);
+								}
+
+								&.border-animated {
+									animation: inOutAnimation 0.8s ease-in-out;
+									border-right: 1px solid var(--aprende--secondary-200);
+								}
+
+								.header-mega-menu {
+
+									&_item {
+										padding: map.get($spacing, "m") map.get($spacing, "s");
+										transition: all 0.3s ease;
+										cursor: pointer;
+
+										&:hover {
+											background-color: var(--aprende--tertiary-100);
+											border-radius: map.get($border-radius, "s");
+											font-weight: $font-semi-bold;
+										}
+
+										&-heading {
+											color: var(--aprende--secondary-600);
+											padding-bottom: map.get($spacing, "m");
+										}
+									}
+								}
+							}
+
+							&-sub-item-wrapper {
+								overflow: hidden;
+
+								@include between-breakpoints-widths(0, 1279px) {
+									width: 100%;
+									min-width: 550px;
+								}
+
+								@include breakpoint(min-width, 1280px) {
+									width: 600px;
+								}
+
+								.menu-sub-item {
+
+									&_heading {
+										width: 100%;
+
+										&.border-animated {
+											animation: inOutAnimation 0.8s ease-in-out;
+											border-bottom: solid 1px var(--aprende--secondary-200);
+										}
+									}
+
+									&_content {
+										width: 100%;
+										height: 100%;
+									}
+
+									&_list {
+										display: grid;
+										align-items: flex-start;
+										width: 100%;
+										grid-template-columns: 1fr;
+										column-gap: map.get($spacing, "l");
+										row-gap: map.get($spacing, "2xs");
+										margin: map.get($spacing, "m") 0 map.get($spacing, "s") 0;
+
+										@include breakpoint (min-width, 1200px) {
+											grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+										}
+
+										@include breakpoint (min-width, 1280px) {
+											grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+										}
+									}
+								}
+							}
+
+							&-additional-item-wrapper {
+								padding: map.get($spacing, "xl") map.get($spacing, "l") 0 map.get($spacing, "l");
+								background-color: var(--aprende--tertiary-100);
+
+								@include breakpoint(max-width, 1279px) {
+									min-width: 300px;
+									width: 100%;
+								}
+
+								@include breakpoint(min-width, 1280px) {
+									padding: map.get($spacing, "xl") map.get($spacing, "l") 0 map.get($spacing, "l");
+									width: 316px;
+								}
+
+								@include breakpoint(min-width, 1367px) {
+									min-width: 359px;
+								}
+
+								.menu-additional-item {
+
+									&_heading {
+										margin-bottom: map.get($spacing, "l");
+									}
+
+									&_content {
+
+										@include breakpoint(max-width, 1365px) {
+											width: 100%;
+										}
+
+										&:not(:last-child) {
+											margin-bottom: map.get($spacing, "l");
+										}
+
+										&-image {
+											width: 80px;
+											height: 80px;
+											flex-shrink: 0;
+
+											.c-image {
+												width: 100%;
+												height: 100%;
+
+												img {
+													object-fit: cover;
+													border-radius: map.get($border-radius, "s");
+												}
+											}
+										}
+
+										&-text {
+											display: flex;
+											flex-direction: column;
+											gap: map.get($spacing, "s");
+
+											a {
+												text-decoration: underline;
+											}
+										}
+									}
+								}
+							}
+						}
+
+						&.column {
+
+							&-first {
+
+								@include between-breakpoints-widths(0, 1279px) {
+									min-width: 300px;
+								}
+							}
+
+							&-second {
+
+								@include between-breakpoints-widths(0, 1279px) {
+									min-width: auto;
+								}
+
+								.column-second {
+
+									&_item {
+										cursor: pointer;
+										width: 100%;
+
+										&:hover {
+											background-color: var(--aprende--tertiary-100);
+											border-radius: map.get($border-radius, "s");
+										}
+									}
+								}
+							}
+
+							&-third {
+
+								@include between-breakpoints-widths(0, 1279px) {
+									min-width: auto;
+								}
+
+								.column-third {
+
+									&_image {
+
+										&.square {
+
+											.image-mask {
+												height: 100px;
+												padding: 0;
+											}
+
+											img {
+												width: 100%;
+												height: 100%;
+												max-width: 100px;
+												max-height: 100px;
+												object-fit: cover;
+											}
+										}
+
+										&.horizontal {
+											margin-bottom: map.get($spacing, "xl");
+
+											img {
+												width: 100%;
+												height: 100%;
+												max-width: 100%;
+												object-fit: cover;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				&_sub-item {
+					width: 100%;
+
+					&-container {
+						transition: all 0.3s ease-in-out;
+						width: 100%;
+					}
+
+					&-links {
+						background-color: transparent;
+
+						a {
+							display: block;
+							width: 100%;
+							font-weight: $font-regular;
+							color: var(--aprende--secondary-600);
+							transition: all 0.3s ease-in-out;
+						}
+
+						&:hover {
+							border-radius: map.get($border-radius, "s");
+							background: var(--aprende--tertiary-100);
+						}
+					}
+				}
+
+				&_item {
+					color: var(--aprende--secondary-600);
+
+					&:not(:last-child) {
+						margin-bottom: 2px;
+					}
+
+					&.current {
+						border-radius: map.get($border-radius, "s");
+						background: var(--aprende--tertiary-100);
+						font-weight: $font-semi-bold;
+					}
+
+					&:not(.current) {
+						color: var(--aprende--secondary-600);
+						background-color: transparent;
+					}
+
+					span {
+						display: block;
+					}
+
+					.c-image {
+
+						img {
+							width: 40px;
+							object-fit: contain;
+							margin-right: 15px;
+						}
+					}
+				}
+
+				//Animation
+				&_item-heading,
+				&_sub-item-heading {
+					animation: inOutAnimation 0.8s ease-in-out;
+				}
+
+				&_links-container {
+					overflow: hidden;
+					animation: inOutAnimation 0.8s ease-in-out;
+				}
+
+				&_item-button,
+				&_sub-item-button {
+					animation: inOutAnimation 0.8s ease-in-out;
+				}
+			}
+		}
+
+		//Animation
+
+		@keyframes inOutAnimation {
+
+			0% {
+				transform: translate(25%);
+				opacity: 0;
+			}
+
+			100% {
+				transform: translate(0);
+				opacity: 1;
+			}
+		}
+
+		.menu-additional-item {
+
+			&_heading {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+
+			&_content {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+		}
+
+		.column-second {
+			overflow: hidden;
+			animation: inOutAnimation 0.8s ease-in-out;
+		}
+
+		.column-first {
+			animation: inOutAnimation 0.8s ease-in-out;
+		}
+
+		.column-third {
+
+			&_heading-title {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+
+			&_heading-description {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+
+			&_image {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+		}
+
+		.menu-sub-item {
+
+			&_list {
+				animation: inOutAnimation 0.8s ease-in-out;
+			}
+		}
+
+		.header-mega-menu + .menu_box { /* stylelint-disable-line */
+			display: none;
+		}
+
+	}
+}

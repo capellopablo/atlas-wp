@@ -1,0 +1,9 @@
+@use "sass:string";
+@use "sass:list";
+
+// Import functions from design system
+@import "~@aprende-com/design-system/scss/config/functions";
+
+// functions
+@import "functions/rem";
+@import "functions/col-width";

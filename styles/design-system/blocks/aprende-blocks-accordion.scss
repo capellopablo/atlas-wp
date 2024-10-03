@@ -1,0 +1,315 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/list";
+
+.b-accordion-v2 {
+    padding: map.get($spacing, "2xl") 0;
+
+    /* stylelint-disable */
+    .c-accordion_button_label {
+        text-align: start;
+    }
+
+    &_subtitle p {
+        font-size: inherit;
+    }
+
+    .c-accordion {
+        &_content {
+            @include list-default-styles();
+
+            font-size: $font-size-m;
+            line-height: $line-height-m;
+        }
+    }
+
+    @include breakpoint(md) {
+        padding: map.get($spacing, "3xl") 0;
+
+        &_heading {
+            text-align: center;
+        }
+    }
+
+    //Layout: two-columns
+
+    &.l-two-columns {
+
+        @include breakpoint(md) {
+
+            .b-accordion-v2 {
+
+                &_container {
+                    box-shadow: none;
+                }
+            }
+            .columns-container {
+                gap: map.get($spacing, "l");
+                grid-template-columns: 1fr 1fr;
+
+                &_left, &_right {
+                    box-shadow: 0px 1px 1px 0px rgba(9, 13, 16, 0.15);
+                    height: fit-content;
+                }
+            }
+        }
+    }
+
+
+    // Layout: temario
+
+    &.l-temario {
+
+        .c-accordion {
+            background: transparent;
+            box-shadow: none;
+
+            .h4 {
+                font-weight: $font-bold;
+            }
+
+            &_sidebar {
+
+                .image-container {
+                    max-width: 100%;
+
+                    img {
+                        height: 150%;
+                        width: 600px;
+                        object-fit: cover;
+                        object-position: top;
+                        border-radius: map.get($border-radius, "s");
+                        animation: leftToRight 7s linear infinite;
+                        animation-direction: alternate;
+
+                    }
+
+                    .image-desktop {
+                        display: none;
+                    }
+
+                    .image-mobile {
+                        display: flex;
+                    }
+
+                    .c-image {
+                        overflow: hidden;
+                        border-radius: map.get($border-radius, "s");
+                        max-height: 162px;
+                        width: 282px;
+                    }
+
+                    @keyframes leftToRight {
+
+                        0% {
+                            transform: translateX(-20%);
+                        }
+
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                }
+
+                .video-container {
+                    width: 100%;
+
+                    iframe {
+                        max-height: 162px;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                        border-radius: map.get($border-radius, "s");
+                    }
+                }
+            }
+
+            &_title {
+                cursor: pointer;
+                background-color: transparent;
+
+                .title {
+                    font-weight: $font-bold;
+                }
+
+                .content {
+
+                    &_extra {
+
+                        &_icon {
+
+                            &:last-child {
+                                border-right: none;
+                                padding-right: map.get($spacing, "0");
+                            }
+
+                            .c-image {
+                                width: 18px;
+                                height: 18px;
+                                margin: auto 6px auto 0;
+                                margin: auto map.get($spacing, "xs") auto map.get($spacing, "0");
+                            }
+                        }
+                    }
+                }
+            }
+
+            .icon {
+
+                &-opened {
+                    display: none;
+                    align-self: center;
+                    margin-right: map.get($spacing, "xs");
+
+                }
+
+                &-closed {
+                    display: flex;
+                    align-self: center;
+                    margin-right: map.get($spacing, "xs");
+
+                }
+            }
+
+            .c-icon {
+
+                >svg {
+
+                    >g {
+
+                        >path {
+                            fill: var(--aprende--primary-900);
+                        }
+                    }
+                }
+            }
+
+            &_item {
+
+                &__open {
+                    gap: map.get($spacing, "0");
+
+                    .icon-opened {
+                        display: flex;
+                    }
+
+                    .icon-closed {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint(max-lg) {
+
+            .c-accordion {
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid var(--aprende--secondary-200);
+                }
+            }
+        }
+
+        @include breakpoint	(md) {
+
+            .c-accordion {
+
+                &_content {
+                    flex-direction: row;
+                }
+
+                &_sidebar {
+
+                    .video-container {
+                        iframe {
+                            width: 436px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include breakpoint(lg) {
+
+            .content {
+                &_extra {
+                    flex-direction: row;
+
+                    &_icons{
+                        flex-direction: row;
+                    }
+
+                    &_icon {
+                        border-right: 1px var(--aprende--secondary-400) solid;
+                        padding: map.get($spacing, "0") map.get($spacing, "l") map.get($spacing, "0") map.get($spacing, "m");
+                    }
+                }
+            }
+
+            .b-accordion-v2 {
+
+                &_container {
+                    padding: map.get($spacing, "2xl") map.get($spacing, "3xl");
+                    margin: map.get($spacing, "0") map.get($spacing, "3xl") map.get($spacing, "0") map.get($spacing, "3xl");
+                }
+            }
+
+            .c-accordion {
+                border-bottom: 1px solid var(--aprende--secondary-200);
+
+                &_title {
+                    flex-direction: row;
+                }
+
+                &_text {
+                    gap: map.get($spacing, "m");
+                }
+
+                &_sidebar {
+
+                    .image-container {
+                        .image-mobile {
+                            display: none;
+                        }
+
+                        .image-desktop {
+                            display: flex;
+                        }
+
+                        .c-image {
+                            overflow: hidden;
+                            border-radius: map.get($border-radius, "s");
+                            max-height: 266px;
+                            width: 436px;
+                        }
+
+                    }
+
+                    .video-container {
+
+                        iframe {
+                            max-height: 266px;
+                            width: 436px;
+                        }
+                    }
+                }
+
+                &_item {
+
+                    &__open {
+
+                        .c-accordion {
+
+                            &_content {
+                                flex-direction: row;
+                                gap: map.get($spacing, "2xl") !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

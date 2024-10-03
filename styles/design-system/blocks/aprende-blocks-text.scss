@@ -1,0 +1,196 @@
+@use "sass:map";
+
+/** Config */
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/list";
+
+.b-text-v2 {
+
+    .field-wysiwyg {
+
+        @include list-default-styles();
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &_image {
+
+        > picture {
+            border-radius: map.get($border-radius, s);
+        }
+    }
+
+    @include breakpoint(max-md) {
+
+        .row,
+        .align-end {
+            align-items: center;
+            text-align: left;
+        }
+
+        &_image {
+            margin-bottom: map.get($spacing, "xl");
+        }
+
+        &_button {
+            align-self: center;
+        }
+    }
+
+    /* Layouts */
+
+    // Standard and Image Top
+    @include breakpoint(md) {
+
+        &.l-image-top {
+
+            .b-text-v2 {
+
+                &_subtitle {
+                    padding: 0 map.get($spacing, "xl");
+                }
+
+            }
+        }
+
+        &.l-standard {
+
+            &:has(.align-center.ta-center) {
+
+                .b-text-v2 {
+
+                    &_button {
+                        width: 252px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+    // Image Left and Image Right
+    @include breakpoint(max-md) {
+
+        &.l-image-left,
+        &.l-image-right {
+
+            .text-box {
+
+                @include breakpoint(max-md) {
+                    padding-left: 8px;
+                    padding-right: 8px;
+                }
+            }
+
+            &:not(.has-image-size-large) {
+
+                .b-text-v2 {
+
+                    &_image {
+
+                        // Aspect Ratio 16:9
+                        --aspect-ratio-16-9: 56.25%;
+
+                        .c-image {
+                            padding-bottom: var(--aspect-ratio-16-9, 56.25%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.l-image-top {
+
+            .col-4 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        &.l-image-bottom {
+
+            .b-text-v2 {
+
+                &_button {
+                    align-self: flex-start;
+                }
+            }
+        }
+
+        &.l-standard {
+
+            .b-text-v2 {
+
+                &_subtitle {
+                    padding: 0 map.get($spacing, "xs");
+                }
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+
+        &.l-image-right {
+
+            .b-text-v2 {
+
+                &_button {
+                    align-self: flex-start;
+                }
+            }
+        }
+
+        &.l-image-bottom {
+
+            .col-lg-12 {
+                flex: none;
+            }
+
+            .b-text-v2 {
+
+                &_button {
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    // Image Top
+    &.l-image-top {
+
+        .b-text-v2 {
+
+            &_image {
+                display: flex;
+                height: 100%;
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto map.get($spacing, "xl");
+
+                > picture {
+                    border-radius: map.get($border-radius, m);
+                }
+            }
+        }
+    }
+
+    // Image Bottom
+    &.l-image-bottom {
+
+        .b-text-v2 {
+
+            &_image {
+                margin: map.get($spacing, "xl") auto 0;
+
+                > picture {
+                    --aspect-ratio: 57% !important;
+                }
+            }
+        }
+    }
+}

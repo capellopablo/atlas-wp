@@ -1,0 +1,43 @@
+/* Mixin: Country flag Icon */
+
+$country-code-list: (
+	mx,
+	us,
+	ca,
+	co,
+	pe,
+	ec,
+	cr,
+	cl,
+	ar,
+	bo,
+	sv,
+	gt,
+	hn,
+	ni,
+	pa,
+	py,
+	pr,
+	do,
+	uy,
+	ve
+);
+
+@mixin country-flag-icon() {
+
+	.flag {
+
+		@each $country-code in $country-code-list { /* Iterate for each value in the list */
+
+			&.#{$country-code} {
+				width: 24px;
+				height: 24px;
+				background-image: url(../../../../aprende21/dist/images/#{$country-code}_rounded.svg);
+				background-position: initial;
+				background-size: contain;
+			}
+
+		}
+
+	}
+}

@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@mixin slideWidth($gap, $slidesPerView) {
+	$totalGapsWidth: $gap * ($slidesPerView - 1);
+	flex: 0 0 auto;
+	margin-right: $gap;
+	width: calc((100% - #{$totalGapsWidth}) / #{$slidesPerView});
+}

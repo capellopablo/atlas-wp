@@ -1,0 +1,125 @@
+// -- Image component --
+
+.c-image {
+	display: flex;
+
+	&:not(.image-mask) {
+
+		svg,
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__has-placeholder {
+		position: relative;
+
+		.c-image-placeholder {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, rgba(27, 38, 49, 0) 57.81%, rgba(27, 38, 49, 0.7) 100%);
+
+			.c-label {
+				position: absolute;
+
+				&.label {
+
+					&-top {
+						top: 12px;
+						left: 15px;
+					}
+
+					&-bottom {
+						bottom: 14.5px;
+						left: 14.5px;
+					}
+				}
+			}
+
+			&-content {
+				color: $white;
+				position: absolute;
+				bottom: 14.5px;
+				left: 14.5px;
+			}
+
+			&__title {
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 22px;
+			}
+
+			&__subject {
+				margin-top: 6px;
+				font-size: 12px;
+				line-height: 15px;
+			}
+		}
+	}
+}
+
+.image-mask {
+	display: block;
+	width: 100%;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	padding-bottom: var(--aspect-ratio, 100%);
+
+	img,
+	svg,
+	iframe {
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+		height: 100%;
+		max-width: 100%;
+		top: 0;
+		left: 0;
+	}
+
+}
+
+.progressive-image {
+	height: 100%;
+	overflow: hidden;
+
+	&_picture {
+		position: absolute;
+		visibility: hidden;
+		width: 100%;
+		z-index: -1;
+
+		img {
+			filter: blur(30px);
+			transition: filter 0.4s;
+		}
+
+		&__visible {
+			display: block;
+			position: relative;
+			visibility: visible;
+			z-index: auto;
+
+			img {
+				filter: blur(0);
+			}
+		}
+	}
+
+	&_placeholder {
+
+		img {
+			filter: blur(30px);
+		}
+
+		&__hidden {
+			display: none !important;
+		}
+	}
+}

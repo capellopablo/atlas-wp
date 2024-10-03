@@ -1,0 +1,211 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-statistics-v2 {
+    padding: map.get($spacing, "2xl") 0;
+
+    &_title p {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: inherit;
+    }
+
+    &_subtitle p {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .column {
+
+        &_card {
+
+            &_subtitle {
+
+                @include breakpoint(md) {
+                    line-height: inherit;
+                }
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+        padding: map.get($spacing, "3xl") 0;
+    }
+
+
+    /** Layout: Bars. */
+    &.l-bars {
+        text-align: left;
+
+        @include breakpoint(md) {
+            text-align: center;
+        }
+
+
+        .statistics {
+
+            .column {
+
+                &_card {
+
+                    &_progress-bar {
+                        max-width: 180px;
+                        position: relative;
+
+                        &__fill {
+                            height: 8px;
+                            max-width: map.get($container-max-widths, "sm");
+                            animation: progressBar 1.5s ease-in-out;
+                            animation-fill-mode: both;
+
+                            @keyframes progressBar {
+
+                                0% {
+                                    width: 0;
+                                }
+
+                                100% {
+                                    width: var(--progress-bar);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    /** Layout: Rings. */
+    &.l-rings {
+
+        .b-statistics-v2 {
+
+            &_wrapper {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+
+                &.left-alignment {
+
+                    @include breakpoint(lg) {
+                        grid-template-columns: 1fr 1fr;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        .left-alignment {
+
+            flex-direction: column;
+
+            @include breakpoint(lg) {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: map.get($spacing, "l");
+            }
+        }
+
+        .display-below-heading {
+            display: none;
+
+            @include breakpoint(lg) {
+                display: block;
+            }
+        }
+
+        .display-mobile {
+            display: flex;
+            flex-direction: column;
+
+            @include breakpoint(lg) {
+                display: none;
+            }
+        }
+
+        .display-desktop {
+            flex-direction: column;
+
+            @include breakpoint(lg) {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .c-button {
+            width: fit-content;
+            margin: 0 auto;
+
+            @include breakpoint(lg) {
+                margin: 0;
+            }
+        }
+
+        .column {
+
+            &_container {
+                min-width: 184px;
+                flex-shrink: 1;
+
+                @include breakpoint(lg) {
+                    text-align: left;
+                    padding-left: map.get($spacing, "m");
+                }
+
+                &.aligment {
+
+                    @include breakpoint(lg) {
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+
+        .statistics {
+
+            @include breakpoint(lg) {
+                flex-wrap: nowrap;
+                gap: map.get($spacing, "l");
+            }
+        }
+
+        //--Rings--//
+
+        .progress-ring {
+            position: relative;
+            width: 106px;
+            height: 106px;
+
+            &.margin-adjust {
+
+                @include breakpoint(lg) {
+                    margin: 0;
+                }
+            }
+
+            &__svg {
+                transform: rotate(-90deg);
+            }
+
+            &__circle-bg {
+                transition: stroke-dashoffset 1.5s ease-in-out;
+            }
+
+            &__circle {
+                transition: stroke-dashoffset 1.5s ease-in-out;
+                transform-origin: center;
+                stroke-dasharray: calc(2 * 3.141592653589793 * 46); /* 2 * π * r where r = 52 */
+                stroke-dashoffset: calc(2 * 3.141592653589793 * 46);
+                border: 2px solid var(--aprende--white);
+            }
+
+            &__text {
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+}

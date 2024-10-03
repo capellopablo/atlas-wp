@@ -1,0 +1,87 @@
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-diploma-v2 {
+
+    a {
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+
+    &_background {
+        display: none;
+
+        @include breakpoint(lg) {
+            display: block;
+            min-height: 184px;
+        }
+    }
+
+    &_wrapper {
+        padding: map.get($spacing, "2xl");
+
+        @include breakpoint(lg) {
+            padding: map.get($spacing, "3xl") 0;
+            position: relative;
+        }
+    }
+
+    &_diploma {
+
+        .c-image {
+            min-width: 156px;
+            width: 156px;
+            height: 218px;
+            padding: 0;
+
+            @include breakpoint(lg) {
+                width: 288px;
+                height: 384px;
+            }
+        }
+
+        @include breakpoint(lg) {
+            position: absolute;
+            left: 799px;
+            bottom: 32px;
+        }
+    }
+
+    &_content {
+        text-align: center;
+        margin-top: map.get($spacing, "l");
+
+        @include breakpoint(lg) {
+            text-align: start;
+            max-width: 496px;
+            margin-top: 0;
+            margin-right: 520px;
+        }
+
+        .c-heading {
+            font-size: $h3-font-size;
+            line-height: $h3-line-height;
+
+            @include breakpoint(lg) {
+                font-size: $h3-font-size-desktop;
+                line-height: $h3-line-height-desktop;
+            }
+        }
+    }
+
+    &_description {
+        margin-top: map.get($spacing, "l");
+
+        p {
+            font-size: $font-size-l;
+            line-height: $line-height-l;
+
+            @include breakpoint(lg) {
+                font-size: $font-size-l-desktop;
+                line-height: $line-height-l-desktop;
+            }
+        }
+    }
+}

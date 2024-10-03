@@ -1,0 +1,151 @@
+/** Config */
+@use "sass:map";
+@import "../config/mixins/slideWidth";
+// -- Slider component --
+
+.c-slider {
+	position: relative;
+	overflow: hidden;
+
+	.swiper {
+
+		@include breakpoint(max-md) {
+
+			&__arrows {
+				display: none;
+			}
+
+		}
+
+		@include breakpoint(md) {
+
+			&__arrows {
+				position: absolute;
+				z-index: 3;
+				top: 0;
+				bottom: 0;
+				display: flex;
+				align-items: center;
+
+				&.left {
+					left: 3px;
+				}
+
+				&.right {
+					right: 3px;
+				}
+			}
+		}
+
+		&-slide {
+			height: auto;
+		}
+
+		&-button-disabled {
+
+			img {
+				opacity: 0.5;
+			}
+		}
+
+		&__arrow {
+			border: none;
+			background: none;
+
+			&:not(:disabled) {
+				cursor: pointer;
+			}
+
+			.c-icon {
+				width: 48px;
+				height: 48px;
+				min-height: 48px;
+				min-width: 48px;
+				align-items: center;
+				justify-content: center;
+				background: $white;
+				border-radius: 50%;
+				box-shadow: 0 6px 10px rgb(1 21 52 / 16%);
+			}
+		}
+
+		&-pagination-bullets {
+			bottom: 15px;
+			display: inline-flex;
+			left: 50%;
+			list-style: none;
+			position: absolute;
+			transform: translateX(-50%);
+			z-index: 2;
+		}
+
+		&-pagination-bullet {
+			width: 15px;
+			height: 2px;
+			background-color: var(--aprende--secondary-400);
+			border-radius: 3px;
+			line-height: 0;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+
+			&-active {
+				background-color: $white;
+				width: 20px;
+			}
+		}
+
+	}
+}
+
+/* Swiper pagination bullets */
+.swiper-pagination {
+
+	&-container {
+		position: relative;
+		height: 35px;
+		top: 50%;
+		transform: translateY(25%);
+	}
+
+	&-bullets-dynamic {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	&-bullet {
+		position: relative;
+		display: inline-block;
+		width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+		height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+		border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+		background: var(--swiper-pagination-bullet-inactive-color, var(--aprende--black));
+		margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+		opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+		transform: scale(0.33);
+		transition: 200ms transform, 200ms left;
+
+		&-active {
+			opacity: var(--swiper-pagination-bullet-opacity, 1);
+			background: var(--aprende--secondary-700);
+
+			&-main {
+				transform: scale(1);
+			}
+
+			&-next {
+				transform: scale(0.66);
+			}
+
+			&-prev {
+				transform: scale(0.66);
+			}
+		}
+
+		.swiper-pagination-clickable & {
+			cursor: pointer;
+		}
+	}
+}

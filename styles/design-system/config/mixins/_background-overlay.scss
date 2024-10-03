@@ -1,0 +1,13 @@
+/* Background overlay */
+
+@mixin background-overlay($background, $overlay) {
+	content: "";
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	right: 0;
+	bottom: -1px;
+	background: linear-gradient(180deg, $background 20%, $overlay 100%);
+	z-index: 1;
+}

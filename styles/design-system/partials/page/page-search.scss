@@ -1,0 +1,114 @@
+/** Config */
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+
+// -- Search --
+.search {
+
+	&_page {
+		padding-top: 45px;
+		padding-bottom: 45px;
+
+		h1 {
+			margin: 0 0 45px;
+		}
+
+		@include breakpoint(md) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+			max-width: 818px;
+
+			h1 {
+				margin: 0 0 52px;
+			}
+		}
+	}
+
+	&_wrapper {
+
+		article {
+
+			&:not(:last-child) {
+				padding-bottom: 15px;
+				margin-bottom: 21px;
+			}
+
+			a {
+				text-decoration: none;
+				display: flex;
+				flex-direction: column;
+				gap: 9px;
+			}
+
+			.article {
+
+				&_title {
+					text-decoration: underline;
+					font-weight: 600;
+					margin: 0;
+				}
+
+				&_excerpt p {
+					font-size: 16px;
+					line-height: 22px;
+				}
+
+				&_details {
+					display: flex;
+					align-items: center;
+					gap: 13px;
+					color: var(--aprende--secondary-400);
+
+					&_item {
+						font-size: 14px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: 18px;
+						display: flex;
+						align-items: center;
+						gap: 3px;
+						color: var(--aprende--secondary-400);
+					}
+
+					&_post-type {
+						display: flex;
+						padding: 6px 12px;
+						justify-content: center;
+						align-items: center;
+						border-radius: 24px;
+						background-color: var(--aprende--tertiary-100);
+						font-size: 12px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: 15px;
+					}
+
+					&_read-time {
+						gap: 12px;
+					}
+
+					&_rating {
+
+						.c-icon {
+
+							img {
+								width: 14px;
+								height: 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_infinite-loader {
+		margin-top: 37px;
+		display: flex;
+		justify-content: center;
+
+		.c-icon {
+			animation: rotation 1.5s linear infinite;
+		}
+	}
+}

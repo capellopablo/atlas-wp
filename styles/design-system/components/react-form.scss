@@ -1,0 +1,236 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.r-lead-form {
+	border-radius: map.get($border-radius, "s");
+
+	@include breakpoint("md") {
+		width: 100%;
+		max-width: 392px;
+		margin-left: map.get($spacing, "m");
+	}
+
+	&_heading {
+		font-size: $h4-font-size;
+		line-height: $h4-line-height;
+	}
+
+	&_contact {
+
+		.c-checkbox {
+
+			> label {
+
+				.c-icon {
+
+					> svg {
+
+						filter: invert(62%) sepia(55%) saturate(543%) hue-rotate(86deg) brightness(90%) contrast(93%);
+					}
+				}
+			}
+		}
+	}
+
+	&_submit {
+		width: 100%;
+		max-width: initial;
+		max-height: 48px;
+	}
+
+	&_after-hour {
+		border-radius: map.get($border-radius, "s");
+
+		.c-icon {
+			height: 42px;
+
+			svg {
+				animation: BounceIcon 1.5s ease infinite;
+			}
+		}
+	}
+
+	&_terms {
+
+		a {
+			color: var(--aprende--secondary);
+			text-decoration: underline;
+			font-size: $font-size-s;
+			line-height: $line-height-s;
+		}
+
+		p {
+			color: var(--aprende--secondary);
+			font-size: $font-size-s;
+			line-height: $line-height-s;
+		}
+	}
+
+	/* Component: Thank you message */
+	&_thank-you-message {
+		height: 100%;
+		min-height: 350px;
+		place-items: center;
+		border-radius: map.get($border-radius, "s");
+
+		@include breakpoint("md") {
+			min-width: 392px;
+			margin-left: map.get($spacing, "m");
+		}
+
+		@include breakpoint("max-md") {
+			width: 100%;
+		}
+
+		.r-animated-check {
+
+			&_content {
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+
+				svg {
+
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+
+	.c-input {
+		width: 100%;
+
+		input {
+			background-color: var(--aprende--white);
+
+			&:not(.c-input_native-control__error) { /* stylelint-disable-line */
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:hover,
+				&:-webkit-autofill:focus,
+				&:-webkit-autofill:active {
+					box-shadow: 0 0 0 30px var(--aprende--white) inset;
+					-webkit-box-shadow: 0 0 0 30px var(--aprende--white) inset;
+					-webkit-text-fill-color: var(--aprende--secondary-700);
+					background-color: var(--aprende--white);
+				}
+			}
+
+			&.c-input_native-control__error { /* stylelint-disable-line */
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:hover,
+				&:-webkit-autofill:focus,
+				&:-webkit-autofill:active {
+					box-shadow: 0 0 0 30px var(--aprende--white) inset;
+					-webkit-box-shadow: 0 0 0 30px var(--aprende--white) inset;
+					-webkit-text-fill-color: var(--aprende--error-500);
+					background-color: var(--aprende--white);
+				}
+			}
+
+		}
+
+		&_label {
+			left: 1px;
+			padding-left: 15px;
+		}
+
+		&-phone {
+			padding-top: map.get($spacing, "xs");
+
+			&_container {
+				padding-bottom: 18px;
+			}
+
+			&-error {
+
+				input {
+					-webkit-text-fill-color: var(--aprende--error-500);
+
+					&:focus,
+					&:active,
+					&:hover {
+						-webkit-text-fill-color: var(--aprende--error-500);
+					}
+				}
+			}
+		}
+
+		&_error {
+			position: absolute;
+			z-index: 2;
+
+			span {
+				padding: 0;
+			}
+		}
+	}
+
+	.c-dropdown {
+		min-width: initial;
+	}
+
+}
+
+.r-form {
+
+	&_skeleton-loader {
+		padding: map.get($spacing, "m");
+		border-radius: map.get($border-radius, "s");
+		background-color: $white;
+
+		@include breakpoint("md") {
+			width: 100%;
+			max-width: 392px;
+			margin-left: map.get($spacing, "m");
+		}
+	}
+}
+
+.r-lead-form + .r-form_skeleton-loader { /* stylelint-disable-line */
+	display: none;
+}
+
+.b-hero-form {
+
+	&__has-skeleton-loader { /* stylelint-disable-line */
+		position: relative;
+	}
+}
+
+@keyframes BounceIcon {
+
+	0% {
+		transform: translateY(0);
+	}
+
+	10% {
+		transform: translateY(0);
+	}
+
+	30% {
+		transform: translateY(-60%);
+	}
+
+	50% {
+		transform: translateY(0);
+	}
+
+	57% {
+		transform: translateY(-3px);
+	}
+
+	64% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+
+}

@@ -1,0 +1,10 @@
+@use "sass:string";
+@use "sass:list";
+
+// Import mixins from design system
+@import "~@aprende-com/design-system/scss/config/mixins";
+// mixins
+@import "mixins/background-overlay";
+@import "mixins/flags";
+@import "mixins/list";
+@import "mixins/slideWidth";

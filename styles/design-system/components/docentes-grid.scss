@@ -1,0 +1,472 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+@import "../config/mixins/slideWidth";
+
+.b-docentes-grid-v2 {
+
+	@include breakpoint(max-md) {
+		padding: map.get($spacing, "2xl") 0 map.get($spacing, "l") 0;
+	}
+
+	@include breakpoint(md) {
+		padding: map.get($spacing, "3xl") 0 map.get($spacing, "m") 0;
+	}
+
+	.container {
+
+		@include breakpoint(max-md) {
+			padding: 0 0 0 map.get($spacing, "m");
+			overflow: hidden;
+		}
+
+		@include breakpoint(md) {
+			padding: 0 map.get($spacing, "2xl");
+		}
+	}
+
+	.b-docentes-grid {
+
+		&_row {
+
+			@include breakpoint(md) {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+
+		&_filter {
+
+			@include breakpoint(max-md) {
+				padding: 0 map.get($spacing, "m") 0 0;
+			}
+
+
+			&__item {
+				width: 125px;
+				text-transform: capitalize;
+				padding: map.get($spacing, "xs") 0;
+				cursor: pointer;
+				transition: all 0.2s ease-in;
+
+				&:first-child {
+					border-radius: map.get($border-radius, "l") 0 0 map.get($border-radius, "l");
+				}
+
+				&:last-child {
+					border-radius: 0 map.get($border-radius, "l") map.get($border-radius, "l") 0;
+				}
+
+				&:not(.selected) {
+					background-color: $white;
+					color: var(--aprende--secondary-700);
+					border: 1px solid var(--aprende--secondary-200);
+				}
+
+				&.selected {
+					background-color: var(--aprende--secondary-200);
+					color: var(--aprende--secondary-700);
+					border: 1px solid var(--aprende--secondary-200);
+				}
+			}
+		}
+
+		&_link {
+			height: 437.25px;
+			position: relative;
+			cursor: pointer;
+			max-width: 291.5px;
+
+			@include breakpoint(md) {
+				max-width: 291.5px;
+				margin: 0 map.get($spacing, "s") map.get($spacing, "l") map.get($spacing, "s");
+			}
+
+		}
+
+		&_card {
+			height: 437.25px;
+			position: relative;
+			overflow: hidden;
+			text-decoration: none;
+			max-width: 291.5px;
+
+			@include breakpoint(md) {
+				max-width: 291.5px;
+				margin: 0 map.get($spacing, "s") map.get($spacing, "l") map.get($spacing, "s");
+			}
+
+			&__content {
+				height: 100%;
+				position: absolute;
+				flex-direction: column;
+				padding: 0 map.get($spacing, "l") map.get($spacing, "l") map.get($spacing, "l");
+				z-index: 2;
+				width: 100%;
+
+				p {
+					color: $white;
+					font-weight: $font-bold;
+					padding: 0 0 map.get($spacing, "xs") 0;
+				}
+
+				span {
+					color: $white;
+					letter-spacing: normal;
+					text-decoration: none;
+				}
+
+				&.description {
+
+					&_open {
+						background: linear-gradient(180deg, rgba(27, 38, 49, 0.9) 0%, rgba(27, 38, 49, 0.9) 100%);
+						animation: FadeIn 0.3s ease-in;
+
+						> div {
+							animation: ShowFromBottom 0.2s ease-in;
+							width: 100%;
+							max-width: 244px;
+							height: auto;
+
+							> p {
+								margin-bottom: map.get($spacing, "xs");
+							}
+
+							> span {
+								text-align: left;
+							}
+
+						}
+					}
+
+					&_close {
+
+						> div {
+							background: none;
+							animation: ToBottom 0.2s ease-in;
+						}
+					}
+				}
+
+				.c-icon-button {
+					-webkit-tap-highlight-color: transparent;
+				}
+
+				.c-top {
+					position: absolute;
+					top: map.get($spacing, "m");
+					right: map.get($spacing, "m");
+				}
+
+				.c-bottom {
+					padding: map.get($spacing, "m") 0 map.get($spacing, "2xs") 0;
+				}
+
+				.link-button {
+					padding: map.get($spacing, "2xs") map.get($spacing, "xs") map.get($spacing, "2xs") map.get($spacing, "m");
+					gap: map.get($spacing, "3xs");
+					width: 100%;
+
+					.c-icon {
+
+						>svg {
+							filter: brightness(100);
+						}
+					}
+				}
+
+				.docente {
+
+					&-description {
+						padding-top: map.get($spacing, "m");
+						color: $white;
+						height: 100%;
+
+						p,
+						span {
+							font-weight: $font-regular;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							padding: map.get($spacing, "0");
+						}
+					}
+				}
+			}
+
+			&__image,
+			.c-image {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				display: block;
+				background-color: var(--aprende--secondary-200);
+				border-radius: map.get($border-radius, "s") map.get($border-radius, "s") 0 0;
+
+				img {
+					object-fit: cover;
+					height: 100%;
+					width: 100%;
+					object-position: center;
+					border-radius: map.get($border-radius, "s") map.get($border-radius, "s") 0 0;
+				}
+
+				&::before {
+
+					@include background-overlay(rgba(27, 38, 49, 0) 0, var(--aprende--secondary-700) 100%);
+				}
+			}
+		}
+
+		&_heading {
+
+			@include breakpoint(max-md) {
+				padding: 0 map.get($spacing, "m") 0 0;
+			}
+		}
+
+		&_load-more {
+			margin: map.get($spacing, "l") map.get($spacing, "xl") map.get($spacing, "xl") map.get($spacing, "xl");
+
+			button {
+				margin: map.get($spacing, "0") auto;
+			}
+		}
+	}
+
+	&_skeleton-loader {
+		margin: 0 0 map.get($spacing, "l") 0;
+
+		&__grid {
+			flex-wrap: wrap;
+
+			@include breakpoint(max-md) {
+				margin: 0 0 0 map.get($spacing, "m");
+			}
+		}
+
+		&__card-container {
+
+			@include breakpoint(md) {
+				flex-wrap: wrap;
+			}
+		}
+
+		&__card {
+			overflow: hidden;
+
+			@include breakpoint(max-md) {
+				width: 100%;
+				margin: 0 map.get($spacing, "m") map.get($spacing, "l") 0;
+
+				:not(:first-child) {
+
+					.c-skeleton-loader {
+						max-width: 297px;
+					}
+				}
+			}
+
+			@include breakpoint(md) {
+				max-width: 291px;
+				margin: 0 map.get($spacing, "s") map.get($spacing, "l") map.get($spacing, "s");
+			}
+
+			&:not(.c-description) {
+
+				.c-skeleton-loader {
+					border-radius: map.get($spacing, "s");
+				}
+			}
+
+			:not(:first-child) {
+				padding: map.get($spacing, "xs") 0 0 map.get($spacing, "m");
+			}
+		}
+
+		&__cta {
+			margin: map.get($spacing, "2xs") 0 0;
+
+			@include breakpoint(max-md) {
+				display: none;
+			}
+		}
+	}
+
+	&.l-standard {
+
+		.c-icon {
+
+			>svg {
+
+				filter: brightness(100);
+			}
+		}
+	}
+
+	&.l-simple {
+
+		.b-docentes-grid {
+
+			@include breakpoint(max-md) {
+
+				.swiper {
+
+					&:not(.swiper-initialized) {
+
+						> div {
+							gap: map.get($spacing, "m");
+						}
+					}
+
+					&-slide {
+						min-width: 297px;
+					}
+				}
+			}
+
+			@include breakpoint(md) {
+
+				.swiper {
+
+					&-wrapper {
+						flex-wrap: wrap;
+						justify-content: center;
+					}
+				}
+			}
+		}
+	}
+
+	&.l-animated {
+
+		.b-docentes-grid-v2 {
+
+			&_heading {
+
+				@include breakpoint(md) {
+					text-align: center;
+
+				}
+			}
+		}
+
+		.b-docentes-grid {
+
+			&_row {
+				overflow: hidden;
+			}
+
+			&_card {
+				height: 273px;
+				margin: map.get($spacing, "0");
+
+				@include breakpoint(lg) {
+					height: 370px;
+				}
+
+				&__content {
+					position: relative;
+					max-height: 273px;
+					bottom: map.get($spacing, "0");
+					padding: map.get($spacing, "m");
+					overflow: hidden;
+					z-index: 2;
+					gap: map.get($spacing, "s");
+
+					> p {
+						font-size: $font-size-l-desktop;
+						line-height: $line-height-l;
+						text-transform: uppercase;
+					}
+
+					> span {
+						font-size: $font-size-l;
+					}
+
+					@include breakpoint(lg) {
+						max-height: 370px;
+						gap: map.get($spacing, "m");
+
+						> p {
+							gap: map.get($spacing, "xl");
+							font-size: $h4-font-size-desktop;
+							line-height: $line-height-l-desktop;
+							padding: 0 0 map.get($spacing, "xs") 0;
+						}
+
+						> span {
+							font-size: $font-size-l-desktop;
+						}
+					}
+				}
+			}
+
+
+			.swiper {
+
+				&-slide {
+					height: 273px;
+
+					@include slideWidth (15.5px, 1.667);
+
+					@include breakpoint(lg) {
+						height: 370px;
+
+						@include slideWidth(24px, 4.28);
+					}
+				}
+			}
+		}
+
+		.container-button {
+			width: 100%;
+			padding-right: map.get($spacing, "s");
+
+
+			@include breakpoint(md) {
+				padding-right: map.get($spacing, "0");
+			}
+		}
+
+
+		.c-image {
+			height: 273px;
+			border-radius: map.get($border-radius, "m");
+
+			@include breakpoint(md) {
+				height: 370px;
+			}
+		}
+
+		.gif {
+			display: none;
+		}
+
+		.is-active {
+
+			.gif {
+				display: block;
+			}
+
+			.fix-img {
+				display: none;
+			}
+		}
+
+		@include breakpoint(max-md) {
+
+			.is-active-mobile {
+
+				.gif {
+					display: block;
+				}
+
+				.fix-img {
+					display: none;
+				}
+			}
+		}
+	}
+}

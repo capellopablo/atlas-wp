@@ -1,0 +1,369 @@
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+@import "../config/mixins/list";
+
+/** Block: Hero. */
+.b-hero-v2 {
+
+	@include breakpoint(max-md) {
+
+		&_container {
+			min-height: 590px !important;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-bottom: 30px;
+		}
+
+		&_block-background {
+
+			.image {
+
+				&-mobile,
+				&-desktop {
+
+					img {
+						min-height: 270px;
+					}
+				}
+
+				&-desktop {
+					display: none;
+				}
+			}
+		}
+
+		&_l-standard {
+			padding-bottom: 0 !important;
+
+			.content {
+				padding-bottom: 0 !important;
+
+				&_extra {
+					flex-direction: column-reverse !important;
+
+					.btn-lg {
+
+						min-width: 100%;
+						margin: 30px auto 0 !important;
+					}
+				}
+			}
+		}
+
+		&_block-foreground {
+
+			.b-hero-form {
+				padding: 30px 16px 0 16px !important;
+			}
+		}
+	}
+
+	@include breakpoint(md) {
+
+		&_container {
+			min-height: 600px !important;
+			align-items: flex-end !important;
+		}
+
+		.image-mobile {
+			display: none;
+		}
+
+		&_l-standard {
+
+			.content {
+
+				&_extra {
+
+					.btn-lg {
+						margin-top: 30px !important;
+					}
+				}
+			}
+		}
+
+		&_block-foreground {
+
+			.b-hero-form {
+				padding: 0 !important;
+			}
+		}
+
+	}
+}
+
+/** Block: Video. */
+.b-video-v2 {
+
+	&_content {
+
+		> ul {
+			list-style: none !important;
+			margin-left: 16px;
+
+			li {
+				margin-left: 0 !important;
+			}
+		}
+
+		.c-heading {
+			margin-bottom: 15px !important;
+		}
+
+		&-item {
+			margin-bottom: 20px !important;
+
+			p {
+				font-size: 18px !important;
+			}
+
+			&:last-child {
+				margin-bottom: 0 !important;
+			}
+		}
+
+		&-subtitle {
+			font-weight: $font-bold;
+		}
+	}
+
+	&_video {
+
+		iframe {
+			border-radius: 6px;
+		}
+	}
+
+	@include breakpoint(max-md) {
+
+		.row {
+			gap: 29px !important;
+		}
+	}
+}
+
+/** Block: Statistics. */
+.b-statistics-v2 {
+
+	max-width: 1366px;
+	margin: 0 auto;
+
+	@include breakpoint(max-md) {
+		text-align: left !important;
+		padding: 45px 15px !important;
+
+		&_heading {
+			text-align: left !important;
+		}
+	}
+
+	.column {
+
+		&_card {
+
+			&_number {
+				color: var(--aprende--secondary-700) !important;
+
+				@include breakpoint(max-md) {
+					margin-bottom: 8px;
+				}
+			}
+		}
+
+		&_container {
+			text-align: start;
+		}
+	}
+
+	.standard-cards {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 24px;
+		padding: 0 64px;
+
+		@include breakpoint(max-md) {
+			flex-direction: column;
+			padding: 0;
+		}
+	}
+}
+
+/** Block: Earnings Estimator. */
+.b-earnings-estimator-v2 {
+	padding: 60px 0;
+
+	@include breakpoint(max-md) {
+		padding: 45px 0;
+	}
+
+	&_main {
+
+		&-title h3 {
+			margin-top: 0 !important;
+		}
+
+		&-price {
+			border-radius: 6px;
+			background-color: var(--aprende--secondary-200) !important;
+		}
+
+		.data > p {
+			margin-bottom: 0 !important;
+		}
+
+		@include breakpoint(max-md) {
+
+			&-title,
+			&-subtitle {
+				text-align: start !important;
+			}
+		}
+	}
+
+	.btn-lg {
+		padding: 6px 15px;
+
+		@include breakpoint(max-md) {
+			margin-top: 15px;
+		}
+	}
+}
+
+/** Block: Jumbotron. */
+.b-jumbotron-v2 {
+	padding: 60px 0;
+	margin: 0 169px;
+
+	@include breakpoint(max-md) {
+		padding: 45px 0;
+		margin: 0 16px;
+	}
+
+	.content {
+		align-items: center;
+		text-align: center;
+		padding: 30px;
+		border-radius: 6px;
+
+		@include breakpoint(max-md) {
+			align-items: start;
+			text-align: left;
+		}
+	}
+}
+
+/** Block: Beneftis */
+.b-benefits-v2 {
+
+	> section {
+		padding: 0 !important;
+	}
+
+}
+
+/** Block: Stories. */
+.b-stories-grid-v2 {
+
+	&_heading {
+		text-align: center;
+
+		@include breakpoint(max-md) {
+			text-align: start;
+		}
+	}
+
+	.subtitle {
+
+		h3 {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+}
+
+/** Block: Docentes grid. */
+.b-docentes-grid-v2 {
+	padding: 60px 0 0 0 !important;
+
+	@include breakpoint(max-md) {
+		padding: 45px 0 !important;
+	}
+
+	.container {
+		padding: 0 64px !important;
+
+		@include breakpoint(max-md) {
+			padding-right: 0 !important;
+			padding-left: 17px !important;
+		}
+	}
+
+	.container-button {
+		margin: 60px 0 30px 0 !important;
+
+		@include breakpoint(max-md) {
+			margin: 30px 0 0 0 !important;
+		}
+	}
+
+	.subtitle {
+
+		h3 {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+}
+
+/** Block: FAQs. */
+.b-accordion-v2 {
+
+	&_container {
+		margin-bottom: 0 !important;
+	}
+
+	&.l-default {
+
+		.container {
+			padding: 60px 64px !important;
+
+			@include breakpoint(max-md) {
+				padding: 45px 15px !important;
+			}
+		}
+	}
+
+	&.faq {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	&.acc-program {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+}
+
+/** Block: Product grid */
+.b-products-grid-v2 {
+	padding: 60px 0 45px 0 !important;
+
+	@include breakpoint(max-md) {
+		padding: 45px 0 !important;
+
+		.swiper-slide {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	> section {
+		padding: 0 !important;
+	}
+
+}
+

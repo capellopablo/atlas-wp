@@ -1,0 +1,14 @@
+// -- Page --
+figure {
+
+	&.wp-block-embed {
+		position: relative;
+
+		.wp-embed-video {
+
+			iframe {
+				margin-top: 0 !important;
+			}
+		}
+	}
+}

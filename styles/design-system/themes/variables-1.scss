@@ -1,0 +1,89 @@
+@use "sass:list";
+@import "~@aprende-com/design-system/scss/config/variables";
+// -- Color Palette --
+
+$primary-100: #9db89d;
+$primary: #497749; // Primary 500
+$primary-900: #2d472d;
+
+$white: #fff;
+
+$secondary-100: #e4c7a3;
+$secondary-200: #d3ab7e;
+$secondary-300: #c1925c;
+$secondary-400: #af7b3d;
+$secondary: #8c5d2b; // Secondary 500
+$secondary-600: #69431e;
+$secondary-700: #482c13;
+$secondary-800: #291509;
+
+$black: $secondary-800;
+
+$tertiary-100: #d1ebf7;
+$tertiary-200: #a1d4f0;
+$tertiary: #71bef8; // Tertiary 500
+$tertiary-800: #3586ca;
+
+$success-100: #cef2da;
+$success-500: #32c25f;
+$success-900: #144e26;
+$warning-100: #ffe7b2;
+$warning-500: #e59e00;
+$error-100: #ffe0e0;
+$error-500: #e00000;
+
+$success: $success-500;
+$warning: $warning-500;
+$danger: $error-500;
+
+/**
+ * Colors used in the theme and their defaults based on the color palette.
+ *
+ * These colors are used throughout the theme and can be used in the
+ * theme's CSS. The colors are divided into two sets, one for the
+ * primary and one for the secondary. The primary colors are used
+ * for the main elements of the site, while the secondary colors
+ * are used for less important elements.
+ */
+
+$theme-colors: (
+	"primary-100": $primary-100,
+	"primary": $primary,
+	"primary-900": $primary-900,
+	"white": $white,
+	"secondary-100": $secondary-100,
+	"secondary-200": $secondary-200,
+	"secondary-300": $secondary-300,
+	"secondary-400": $secondary-400,
+	"secondary": $secondary,
+	"secondary-600": $secondary-600,
+	"secondary-700": $secondary-700,
+	"secondary-800": $secondary-800,
+	"black": $black,
+	"tertiary-100": $tertiary-100,
+	"tertiary-200": $tertiary-200,
+	"tertiary": $tertiary,
+	"tertiary-800": $tertiary-800,
+	"success-100": $success-100,
+	"success-500": $success-500,
+	"success-900": $success-900,
+	"warning-100": $warning-100,
+	"warning-500": $warning-500,
+	"error-100": $error-100,
+	"error-500": $error-500,
+);
+
+// -- Typography --
+
+$font-main: "Source Sans Pro", sans-serif;
+$font-heading: "Roboto Condensed", sans-serif;
+$color-main: $black;
+$font-regular: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+$font-weights: (
+	"regular": $font-regular,
+	"semi-bold": $font-semi-bold,
+	"bold": $font-bold
+);

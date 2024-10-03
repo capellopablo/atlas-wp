@@ -1,0 +1,202 @@
+// -- Fomo component --
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.c-fomo {
+	animation: FadeIn 0.5s ease-in-out;
+	position: relative;
+	z-index: 10;
+
+	&.hidden {
+		animation: FadeOut 0.5s ease-in-out;
+		opacity: 0;
+	}
+
+	.container {
+		position: fixed;
+		width: 100%;
+		bottom: var(--fomo-bottom, 32px);
+		transform: translateX(-50%);
+		left: 50%;
+		z-index: 10;
+	}
+
+	&[data-status="hidden"] {
+		display: none;
+	}
+
+	.b-hero-v2_l-standard .content & { /* stylelint-disable-line */
+
+		&-inner {
+			color: $black;
+			transition: max-width ease 0.6s;
+			max-width: 428px;
+
+			.c-heading {
+				white-space: inherit;
+				font-size: 18px;
+				line-height: 22px;
+			}
+		}
+
+		@include breakpoint(md) {
+
+			&[data-desktop-position="hero"] {
+
+				.container {
+					position: relative;
+					transform: unset;
+					left: 0;
+					padding: 0;
+					bottom: 0;
+				}
+			}
+
+			&-content {
+
+				&-button {
+					display: none;
+					animation: FadeIn 0.5s ease-in-out;
+				}
+			}
+
+			&[data-show-button="true"] {
+
+				.c-fomo {
+
+					&-inner {
+						max-width: 607px;
+					}
+				}
+			}
+
+		}
+
+	}
+
+	@include breakpoint(max-md) {
+
+		.container {
+			padding: 0;
+			height: fit-content;
+		}
+
+		&[data-mobile-position="bottom"] {
+
+			.container {
+				bottom: 0;
+			}
+
+			.c-fomo-inner {
+				border-radius: 6px 6px 0 0;
+			}
+		}
+
+		&[data-mobile-position="top"] {
+
+			.container {
+				top: 70px;
+			}
+
+			.c-fomo-inner {
+				border-radius: 0 0 6px 6px;
+			}
+		}
+	}
+
+	&-inner {
+		box-shadow: 0 4px 10px 0 #0000001a;
+		display: inline-flex;
+		flex-direction: column;
+		padding: 15px;
+		gap: 6px;
+		border-radius: 6px;
+		width: 100%;
+		max-width: 607px;
+	}
+
+	&-title {
+		display: flex;
+		justify-content: space-between;
+
+		.c-heading {
+			margin-bottom: 0;
+			font-size: 18px;
+			line-height: 22px;
+		}
+
+		button {
+			background: transparent;
+			border: 0;
+			padding: 0;
+
+			.c-icon {
+				cursor: pointer;
+			}
+		}
+	}
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+
+		@include breakpoint(md) {
+			flex-direction: row;
+			gap: 45px;
+		}
+
+		@include breakpoint(max-md) {
+
+			&-button {
+				width: 100%;
+
+				.btn {
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					max-width: 100%;
+				}
+			}
+		}
+
+		&-inner {
+			flex: 1;
+		}
+	}
+
+	&-progress-bar {
+		width: 100%;
+		position: relative;
+		background-color: rgba($warning, 0.25);
+		border-radius: 9px;
+		margin-bottom: 6px;
+
+		@include breakpoint(max-md) {
+			max-width: 298px;
+		}
+
+		&__fill {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 18px;
+			transition: width 500ms ease-in-out;
+			width: var(--progress-bar);
+			max-width: 100%;
+			position: relative;
+			border-radius: 9px;
+
+			span {
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 18px;
+			}
+		}
+	}
+
+	.bg-white {
+		background-color: $white;
+	}
+}

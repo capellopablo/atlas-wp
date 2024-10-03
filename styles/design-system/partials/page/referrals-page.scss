@@ -1,0 +1,74 @@
+/** Config */
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+@import "../../utilities/animation";
+
+// -- Referrals page --
+
+body.referrals-page {
+	$font-hero: "Poppins", sans-serif;
+
+	--aprende--primary: #4762f8;
+	--aprende--primary-900: #1d44c3;
+
+	.b-hero-v2 {
+
+		&_block-foreground {
+			width: 100%;
+		}
+
+		.content {
+
+			.c-heading {
+				font-family: $font-hero;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				white-space: normal;
+
+				&__red {
+					color: #4762f8;
+					--aprende--primary: #fff;
+				}
+			}
+
+			.content {
+
+				&_subtitle {
+					font-family: $font-hero;
+					font-weight: 700;
+					font-size: 18px;
+
+					p {
+						font-size: inherit;
+						font-family: $font-hero;
+					}
+				}
+			}
+		}
+
+		@include breakpoint(md) {
+
+			&_container {
+				min-height: 563px;
+			}
+		}
+
+	}
+
+	.b-text-v2 {
+		background-color: $white;
+
+		.container {
+
+			.row {
+				padding-top: 30px;
+				padding-bottom: 30px;
+				max-width: 83.3333333333%;
+				margin: 0 auto;
+				background-color: var(--aprende--tertiary-100);
+				border-radius: 6px;
+			}
+		}
+	}
+}

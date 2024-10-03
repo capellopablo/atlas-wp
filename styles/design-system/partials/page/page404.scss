@@ -1,0 +1,94 @@
+/** Config */
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+
+.page-error-404 {
+	padding: 90px 0;
+
+	.container {
+
+		@include breakpoint(md) {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+			justify-content: center;
+			padding-bottom: 15vh;
+		}
+
+		.content {
+
+			&__image {
+
+				@include breakpoint(max-md) {
+					margin-bottom: 30px;
+				}
+
+				@include breakpoint(md) {
+					padding: 0 7px 0 10px;
+				}
+
+			}
+
+			&__text {
+
+				.h2 {
+					margin: 0;
+				}
+
+				.text {
+					margin: 15px 0;
+				}
+
+
+				&-list {
+					display: flex;
+					flex-wrap: wrap;
+
+					li {
+
+						@include breakpoint(max-md) {
+							margin: 15px 40px 0 0;
+						}
+
+						@include breakpoint(md) {
+							margin: 15px 33px 0 0;
+						}
+
+						&::marker {
+							font-size: 16px;
+						}
+
+						&:not(:first-child) {
+							list-style: initial;
+
+							@include breakpoint(max-md) {
+
+								&:not(:last-child) {
+									padding-inline-start: 9px;
+
+								}
+
+								&:last-child {
+									list-style: none;
+								}
+							}
+
+							@include breakpoint(md) {
+								padding-inline-start: 3px;
+							}
+						}
+
+						a {
+							color: var(--aprende--primary);
+							text-decoration: underline;
+							white-space: nowrap;
+						}
+					}
+
+				}
+			}
+
+		}
+	}
+
+}

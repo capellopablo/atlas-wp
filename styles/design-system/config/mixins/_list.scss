@@ -1,0 +1,103 @@
+// -- List mixins --
+
+@mixin list-default-styles() {
+
+	ol,
+	ul {
+		list-style-type: disc;
+		list-style-position: initial;
+
+		> li {
+			text-align: left;
+
+			margin-bottom: 6px;
+			margin-left: 30px;
+
+			> ul,
+			> ol {
+				padding-left: 15px;
+			}
+
+			&:first-child {
+				margin-top: 15px;
+			}
+
+			&:last-child {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	ol li p {
+		display: inline-block;
+	}
+}
+
+
+@mixin remove-list-styles() {
+
+	ol,
+	ul {
+		list-style: none;
+
+		> li {
+			margin: 0;
+			text-align: inherit;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			> ul,
+			> ol {
+				padding: 0;
+			}
+		}
+	}
+}
+
+
+@mixin remove-list-styles-child() {
+
+	> ol,
+	> ul {
+		list-style: none;
+
+		> li {
+			margin: 0;
+			text-align: inherit;
+
+			ol {
+				list-style-type: revert;
+			}
+
+			ol ul {
+				list-style-type: circle;
+			}
+
+			ol ul ul {
+				list-style-type: square;
+			}
+
+			ul ol ul {
+				list-style-type: square;
+			}
+
+			ul {
+				list-style-type: disc;
+			}
+
+			ul ul {
+				list-style-type: circle;
+			}
+
+			ul ul ul {
+				list-style-type: square;
+			}
+		}
+	}
+}

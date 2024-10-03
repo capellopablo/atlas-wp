@@ -27,7 +27,7 @@ export default function Component(props) {
         menuItems={menuItems}
       />
 
-      <main className="container">
+      <main>
         <WordPressBlocksViewer blocks={editorBlocks} />
       </main>
 
@@ -48,6 +48,10 @@ Component.query = gql`
   ${blocks.AprendeBlocksHero.fragments.entry}
   ${blocks.AprendeBlocksDiploma.fragments.entry}
   ${blocks.AprendeBlocksBenefits.fragments.entry}
+  ${blocks.AprendeBlocksStatistics.fragments.entry}
+  ${blocks.AprendeBlocksJumbotron.fragments.entry}
+  ${blocks.AprendeBlocksText.fragments.entry}
+  ${blocks.AprendeBlocksAccordion.fragments.entry}
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
     post(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
@@ -67,6 +71,10 @@ Component.query = gql`
         ...AprendeBlocksHeroFragment
         ...AprendeBlocksDiplomaFragment
         ...AprendeBlocksBenefitsFragment
+        ...AprendeBlocksStatisticsFragment
+        ...AprendeBlocksJumbotronFragment
+        ...AprendeBlocksTextFragment
+        ...AprendeBlocksAccordionFragment
       }
     }
     ...HeaderFragment

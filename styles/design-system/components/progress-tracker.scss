@@ -1,0 +1,43 @@
+// -- Progress Tracker component --
+
+.c-progress-tracker {
+	display: flex;
+	border-radius: 6px;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+	padding: 9px;
+
+	.steps {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 22px;
+
+		.step {
+			margin: 0 !important;
+			opacity: 0.3;
+
+			&.active {
+				opacity: 1;
+			}
+
+			&_number {
+				display: inline-block;
+				margin-right: 4px;
+			}
+		}
+	}
+
+	@include breakpoint(md) {
+
+		.steps {
+			flex-direction: row;
+			gap: 21px;
+		}
+	}
+}

@@ -1,0 +1,309 @@
+@use "sass:map";
+
+/** Config */
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-benefits-v2 {
+    padding: map.get($spacing, "2xl") 0;
+
+    $sizeM: map.get($spacing, "m");
+    $sizeL: map.get($spacing, "l");
+
+    &.l-standard {
+
+        .b-benefits-v2 {
+
+            &_item {
+
+                .c-card {
+
+                    &_wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    @include breakpoint(max-md) {
+
+        &.l-standard {
+
+            .b-benefits-v2 {
+
+                &_heading {
+                    padding: 0 map.get($spacing, "m");
+                }
+
+                &_col {
+                    padding: 0 map.get($spacing, "s");
+                }
+            }
+
+            &.disabled-slider-mobile {
+
+                .swiper {
+                    overflow: visible;
+
+                    &-wrapper {
+                        justify-content: center;
+                    }
+
+                    &-slide {
+                        padding: 0;
+                    }
+                }
+            }
+
+            &:not(&.disabled-slider-mobile) {
+
+                .container {
+                    padding: 0;
+
+                    /** Sliders layouts. */
+                    .swiper {
+                        margin: - map.get($spacing, "s") 0;
+                        padding: map.get($spacing, "s") map.get($spacing, "m");
+
+                        &-wrapper {
+                            margin: - map.get($spacing, "s") 0;
+                            padding: map.get($spacing, "s") 0;
+                            display: flex;
+                        }
+
+                        &-slides {
+                            overflow: visible;
+                            min-height: 100%;
+                            height: auto;
+                        }
+
+                        &-slide {
+                            height: auto;
+                            padding: 0;
+                            max-width: calc(100% - $sizeM);
+                            margin-right: map.get($spacing, "m");
+                            flex: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+        padding: map.get($spacing, "3xl") 0;
+
+        &.l-standard {
+
+            .swiper {
+
+                &-wrapper {
+                    display: flex;
+                }
+
+                &-slide {
+                    margin-right: map.get($spacing, "l");
+                    flex: 0 0 calc(33.3333333333% - $sizeM);
+                    max-width: calc(33.3333333333% - $sizeM);
+                    padding: 0;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            &.disabled-slider-desktop {
+
+                .swiper {
+                    overflow: visible;
+
+                    &__arrows {
+                        display: none;
+                    }
+
+                    &-wrapper {
+                        justify-content: center;
+                    }
+                }
+            }
+
+            &:not(&.disabled-slider-desktop) {
+
+                .swiper {
+                    padding: map.get($spacing, "m");
+                    margin: - map.get($spacing, "m");
+
+                    &__track {
+                        margin: - map.get($spacing, "s");
+                    }
+
+                    &-wrapper {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+        }
+    }
+
+    &.bg-secondary-700 {
+
+        .b-benefits-v2 {
+
+            &_title,
+            &_subtitle,
+            &_blurbs-text,
+            &_heading,
+            &_label {
+                color: var(--aprende--white);
+            }
+        }
+    }
+
+    &.bg-secondary-200,
+    &.bg-tertiary-100 {
+
+        .b-benefits-v2 {
+
+            &_label {
+                color: var(--aprende--secondary-800);
+            }
+        }
+    }
+
+    &_item {
+        height: 100%;
+
+        .c-card {
+            height: 100%;
+
+            &_content {
+
+                &_buttons {
+                    justify-content: center;
+                }
+            }
+        }
+
+        &[class*="col-"] {
+            min-height: 100%;
+            height: auto;
+        }
+    }
+
+    /** Layout: Blurbs with icon. */
+    &.l-blurbs-icon {
+
+        .row {
+            row-gap: map.get($spacing, "l");
+        }
+
+        .container-simple,
+        .one-column-container {
+
+            .c-image {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-self: flex-start;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .c-standard {
+
+            &_icon {
+
+                .c-image {
+                    margin-right: map.get($spacing, "m");
+                }
+
+                @include breakpoint(max-md) {
+
+                    &.container-simple,
+                    &.one-column-container {
+
+                        .c-image {
+                            max-width: 32px;
+                            height: 32px;
+                        }
+                    }
+                }
+
+                @include breakpoint(md) {
+
+                    &.container-simple,
+                    &.one-column-container {
+
+                        .c-image {
+                            max-width: 48px;
+                            height: 48px;
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        .c-custom {
+
+            &_icon {
+
+                @include breakpoint(max-md) {
+                    text-align: center;
+                }
+
+                .c-image {
+                    max-width: 80px;
+                    height: 80px;
+
+                    @include breakpoint(max-md) {
+                        margin: 0 auto;
+                    }
+                }
+
+            }
+        }
+
+        .b-benefits-v2 {
+
+            &_content {
+                max-width: 376px;
+            }
+
+            &_cta {
+
+                @include breakpoint(max-md) {
+                    margin-top: map.get($spacing, "l");
+                }
+
+                @include breakpoint(md) {
+                    margin-top: map.get($spacing, "xl");
+                }
+            }
+        }
+
+        @include breakpoint(md) {
+
+            .container {
+
+                > .c-heading {
+                    margin-bottom: map.get($spacing, "xl");
+                }
+            }
+
+        }
+
+    }
+}

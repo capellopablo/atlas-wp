@@ -1,0 +1,74 @@
+@use "sass:map";
+
+/** Config */
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+@import "../../config/mixins/list";
+
+// -- Single --
+.single-post {
+
+	/* stylelint-disable */
+	.wrapper_box {
+
+		.content_box .info {
+			/* stylelint-enable */
+
+			.author {
+				grid-template-columns: 70px 3fr;
+				row-gap: 0;
+
+				&_thumbnail {
+					grid-row-start: 1;
+					grid-row-end: 1;
+					overflow: hidden;
+				}
+
+				&_information {
+					grid-column: span 2;
+				}
+
+				&_excerpt {
+					grid-column-start: 1;
+					grid-column-end: 4;
+				}
+
+				@include breakpoint(md) {
+					grid-template-columns: 1fr 4fr;
+					gap: 0;
+
+					&_title {
+						padding-top: 15px;
+						justify-content: flex-end;
+						margin-bottom: 15px;
+					}
+
+					&_thumbnail {
+						grid-row-end: 3;
+						min-width: 186px;
+						margin-right: 24px;
+					}
+
+					&_information {
+						grid-column: auto;
+					}
+
+					&_excerpt {
+						margin-top: 15px;
+					}
+
+					&__has-excerpt {
+
+						.author {
+
+							&_information {
+								grid-column: span 2;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

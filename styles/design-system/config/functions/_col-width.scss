@@ -1,0 +1,5 @@
+/* Function to calculate width of each column */
+@function col-width($col, $columns) {
+
+	@return calc(100% / $columns * $col);
+}

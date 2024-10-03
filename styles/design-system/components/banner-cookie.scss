@@ -1,0 +1,81 @@
+// /** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+@import "../utilities/animation";
+
+.cookie-disclaimer {
+
+	&-container {
+		max-width: calc(100% - 36px);
+		position: fixed;
+		bottom: 20px;
+		right: 0;
+		left: 0;
+		z-index: 9999;
+		display: flex;
+		justify-content: space-between;
+
+		&.hidden {
+			display: none;
+		}
+
+		&.hide-cookie {
+			animation: HideToBottom 1s forwards; /* stylelint-disable-line */
+			-webkit-animation: HideToBottom 1s forwards; /* stylelint-disable-line */
+		}
+
+		&.show-cookie {
+			display: block !important;
+			animation: ShowFromBottom 1s forwards; /* stylelint-disable-line */
+			-webkit-animation: ShowFromBottom 1s forwards; /* stylelint-disable-line */
+		}
+
+		@include breakpoint(md) {
+			width: calc(100% - 40px);
+			max-width: 1135px;
+			justify-content: center;
+		}
+	}
+
+	&_wrapper {
+		justify-content: space-between;
+		padding: map.get($spacing, "s");
+
+		@include breakpoint(md) {
+			justify-content: center;
+			padding: 0 map.get($spacing, "s");
+		}
+	}
+
+	&_content {
+		flex-direction: column;
+
+		@include breakpoint(md) {
+			flex-direction: row;
+			align-items: center;
+			padding: map.get($spacing, "s") 0;
+			gap: map.get($spacing, "s");
+		}
+	}
+
+	&_description {
+		margin-top: map.get($spacing, "2xs");
+
+		@include breakpoint(md) {
+			margin-top: 0;
+		}
+
+		a {
+			font-weight: $font-regular;
+			font-size: $font-size-xs;
+			line-height: $line-height-xs;
+			margin: 0;
+			white-space: nowrap;
+			text-decoration: underline;
+		}
+
+
+	}
+}

@@ -1,0 +1,165 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+
+.b-jumbotron-v2 {
+
+    &_wrapper {
+        overflow: hidden;
+        position: relative;
+
+        &:not(.is-fullscreen) {
+            border-radius: map.get($border-radius, "s");
+        }
+
+        &.bg-secondary-700 {
+            color: var(--aprende--white);
+        }
+
+        .subtitle {
+
+            p {
+                font-size: $font-size-l-desktop;
+                line-height: $line-height-l-desktop;
+
+                @include breakpoint(max-md) {
+                    font-size: $font-size-l;
+                    line-height: $line-height-l;
+                }
+            }
+        }
+    }
+
+    &:not(.has-bg-image) {
+
+        .b-jumbotron-v2 {
+
+            &_block-foreground {
+
+                @include breakpoint(max-md) {
+                    padding: map.get($spacing, "2xl") map.get($spacing, "m");
+                }
+
+                @include breakpoint(md) {
+                    padding: map.get($spacing, "3xl");
+                }
+
+            }
+        }
+
+    }
+
+    &.has-bg-image {
+        position: relative;
+        overflow: hidden;
+
+        &:not(.disable-gradient) {
+
+            .b-jumbotron-v2 {
+
+                &_wrapper {
+
+                    &::before {
+
+                        @include background-overlay(rgba(0, 0, 0, 0), var(--aprende--secondary-700));
+                    }
+                }
+            }
+        }
+
+        &.disable-gradient {
+
+            .b-jumbotron-v2 {
+
+                &_heading {
+                    color: var(--aprende--secondary-800);
+                }
+            }
+
+        }
+
+        .b-jumbotron-v2 {
+
+            &_wrapper {
+                background-color: transparent;
+                color: var(--aprende--white);
+            }
+
+            &_content {
+
+                @include breakpoint(max-md) {
+                    padding: map.get($spacing, "2xl") map.get($spacing, "m");
+                }
+
+                @include breakpoint(md) {
+                    padding: map.get($spacing, "3xl");
+                }
+            }
+
+            &_block-background {
+                width: 100%;
+                z-index: -1;
+
+                @include breakpoint(max-md) {
+                    position: relative;
+                }
+
+                @include breakpoint(md) {
+                    position: absolute;
+                    height: 100%;
+
+                    .image-desktop,
+                    .c-image {
+                        height: 100%;
+
+                        img {
+                            object-fit: cover;
+                            object-position: top center;
+                        }
+                    }
+                }
+            }
+
+            &_block-foreground {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 2;
+
+                @include breakpoint(max-md) {
+                    position: absolute;
+                }
+
+                @include breakpoint(md) {
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+
+        &_heading {
+            max-width: 1000px;
+        }
+    }
+
+    &.has-bg-image-mobile {
+
+        @include breakpoint(max-md) {
+
+            .image-desktop {
+                display: none;
+            }
+        }
+
+        @include breakpoint(md) {
+
+            .image-mobile {
+                display: none;
+            }
+        }
+    }
+}

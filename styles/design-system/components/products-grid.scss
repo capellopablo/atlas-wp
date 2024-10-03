@@ -1,0 +1,627 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+@import "../config/mixins/list";
+@import "../config/mixins/slideWidth";
+@import "../utilities/animation";
+
+
+.b-products-grid-v2 {
+	padding: map.get($spacing, "2xl") map.get($spacing, "0") map.get($spacing, "m") map.get($spacing, "0");
+	overflow: hidden;
+
+	.aligment-left {
+
+		@include breakpoint(md) {
+			display: flex;
+		}
+	}
+
+	.c-icon {
+
+		>svg {
+
+			>g {
+
+				>path {
+					fill: $white;
+				}
+			}
+		}
+	}
+
+	.b-product-grid {
+
+		&_filter {
+
+			&__item {
+				width: auto !important;
+				cursor: pointer;
+				transition: all 0.2s ease-in;
+			}
+		}
+
+		&_card {
+			position: relative;
+			text-decoration: none;
+
+			&__image,
+			.c-image {
+				position: relative;
+				display: block;
+				background-color: var(--aprende--secondary-200);
+
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+					object-position: top;
+				}
+
+				&::before {
+
+					@include background-overlay(rgba(27, 38, 49, 0) 58%, var(--aprende--secondary-700) 100%);
+				}
+			}
+		}
+
+		@include breakpoint(md) {
+
+			&__content-center {
+				justify-content: center;
+
+				.swiper-slide {
+
+					&:last-child {
+						margin-right: map.get($spacing, "0") !important;
+					}
+				}
+			}
+
+		}
+
+	}
+
+
+	&.l-animated {
+
+		.b-product-grid {
+
+			&_row {
+
+				.swiper {
+
+					&-slide {
+
+						@include slideWidth (15.5px, 1.667);
+					}
+				}
+			}
+		}
+
+
+		.c-image {
+			border-radius: map.get($border-radius, "m");
+		}
+
+		.gif {
+			display: none;
+		}
+
+		.is-active {
+
+			.gif {
+				display: block;
+			}
+
+			.fix-img {
+				display: none;
+			}
+		}
+	}
+
+	&.l-column {
+
+		.c-image {
+			border-radius: map.get($border-radius, "s");
+		}
+
+		.b-product-grid {
+
+			&_row {
+
+				.swiper {
+
+					&-slide {
+
+						@include slideWidth (15.5px, 1.2);
+					}
+				}
+			}
+
+			&_card {
+
+				&-animated-content {
+					cursor: pointer;
+
+					&.description {
+
+						&__open {
+							background: linear-gradient(180deg, rgba(27, 38, 49, 0.9) 0%, rgba(27, 38, 49, 0.9) 100%);
+							border-radius: map.get($border-radius, "s");
+
+							.b-product-grid {
+
+								&_card {
+
+									&-animated-content-description {
+										animation: ShowFromBottom 0.2s ease-in;
+										display: block;
+										overflow: hidden;
+										text-overflow: ellipsis;
+
+									}
+								}
+							}
+
+							.arrow-button {
+								display: none !important;
+							}
+
+							.close-button {
+								display: flex !important;
+								position: absolute;
+								top: 0;
+								right: 0;
+								padding: 15px;
+							}
+						}
+
+						&__close {
+							animation: ToBottom 0.2s ease-in;
+							background: none;
+						}
+					}
+
+
+					&-description {
+						display: none;
+					}
+
+					.show-more {
+						width: 100%;
+						justify-content: center;
+						display: flex;
+						pointer-events: auto;
+					}
+				}
+			}
+		}
+	}
+
+	&.l-animated,
+	&.l-column {
+
+		.right-mask {
+
+			@include breakpoint(md) {
+
+				&::before {
+
+					content: "";
+					position: absolute;
+					display: block;
+					width: 200px;
+					right: 0;
+					top: map.get($spacing, "0");
+					bottom: -1px;
+					background: linear-gradient(90deg, rgba(27, 38, 49, 0) 50% 20%, $white 100% 100%);
+					z-index: 4;
+					pointer-events: none;
+				}
+			}
+		}
+
+		.b-product-grid {
+			display: contents;
+
+			.arrows-container {
+
+				@include breakpoint(md) {
+					padding-top: map.get($spacing, "xs");
+
+					&.justify-end {
+
+						>.swiper-pagination-container {
+							display: none;
+						}
+					}
+				}
+
+				>.swiper-pagination-container {
+					width: 100px;
+
+					@include breakpoint(max-md) {
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+
+				@include breakpoint(md) {
+					display: flex !important;
+				}
+
+				> .c-carousel {
+
+					> .c-icon {
+
+						> svg {
+
+							filter: brightness(0);
+						}
+					}
+				}
+			}
+
+			&_filter {
+
+				&:not(.swiper-initialized) {
+
+					> div {
+						gap: map.get($spacing, "m");
+					}
+				}
+
+				.swiper {
+
+					&-wrapper {
+
+						@include breakpoint(md) {
+							justify-content: center;
+						}
+
+					}
+
+					&-slide {
+						margin: map.get($spacing, "0") map.get($spacing, "0") map.get($spacing, "xs") map.get($spacing, "0");
+						flex-shrink: map.get($spacing, "0");
+					}
+				}
+			}
+
+			&_row {
+				overflow: hidden;
+
+				.swiper {
+
+					&-wrapper {
+
+						@include breakpoint(md) {
+							height: auto;
+						}
+					}
+
+					&-slide {
+
+						@include breakpoint(md) {
+
+							@include slideWidth (24px, 4);
+						}
+					}
+				}
+			}
+
+			&_row[data-align-left="true"] {
+				overflow: hidden;
+
+				@include breakpoint(md) {
+					max-width: 809px;
+					width: 100%;
+				}
+
+				.swiper {
+
+					&-slide {
+
+						@include slideWidth (15.5px, 1.667);
+
+						@include breakpoint(md) {
+
+							@include slideWidth (24px, 2.8);
+						}
+					}
+				}
+			}
+
+			&__heading {
+				padding: map.get($spacing, "0") map.get($spacing, "m") map.get($spacing, "0") map.get($spacing, "0");
+
+				&.aligment {
+					max-width: 391px;
+					width: 100%;
+				}
+			}
+
+
+			&_card {
+				margin: map.get($spacing, "0");
+
+				&-animated-content {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					justify-content: flex-end;
+					bottom: map.get($spacing, "0");
+					border-radius: map.get($border-radius, "m");
+					padding: map.get($spacing, "m");
+					color: $white;
+					overflow: hidden;
+					z-index: 2;
+					-webkit-tap-highlight-color: transparent;
+
+					> .big-title,
+					.small-title {
+						font-size: $h4-font-size-desktop;
+						text-transform: uppercase;
+					}
+
+					> .small-title {
+						font-size: $font-size-l-desktop;
+					}
+				}
+
+				&-animated-image {
+					min-width: 200px;
+					height: 100%;
+					background-color: var(--aprende--secondary-200);
+					border-radius: map.get($border-radius, "s");
+					padding: map.get($spacing, "0");
+
+					&::before {
+						content: "";
+						position: absolute;
+						display: block;
+						height: 100%;
+						width: 100%;
+						right: map.get($spacing, "0");
+						bottom: - map.get($spacing, "3xs");
+						background: linear-gradient(180deg, rgba(27, 38, 49, 0) 15.1%, var(--aprende--secondary-700) 80.73%);
+						z-index: 1;
+					}
+				}
+			}
+		}
+
+
+		.container-button {
+
+			@include breakpoint(md) {
+				margin-top: map.get($spacing, "l");
+			}
+			width: 100%;
+
+			&.center {
+
+				@include breakpoint(md) {
+					justify-content: center;
+				}
+			}
+		}
+
+
+		.title {
+			margin-bottom: map.get($spacing, "xl");
+		}
+	}
+
+	@include breakpoint(md) {
+		padding: map.get($spacing, "3xl") map.get($spacing, "0") map.get($spacing, "xl") map.get($spacing, "0");
+
+		//Navigation buttons styles
+		[data-has-more-than-four="true"] {
+
+			.swiper-button-next,
+			.swiper-button-prev {
+				display: flex !important;
+			}
+		}
+
+
+		//Navigation buttons styles
+		[data-has-more-than-four="false"] {
+
+			.swiper-pagination-container {
+				display: none;
+			}
+		}
+
+		.container {
+			max-width: 1366px;
+		}
+
+		.b-product-grid {
+
+			&_row {
+				margin: map.get($spacing, "l") map.get($spacing, "0") map.get($spacing, "xs") map.get($spacing, "0");
+				flex-wrap: wrap;
+			}
+
+			&_card {
+				margin: map.get($spacing, "0") map.get($spacing, "0") map.get($spacing, "l") map.get($spacing, "0");
+			}
+		}
+
+		&.l-animated,
+		&.l-column {
+
+			&_subtitle {
+				padding: map.get($spacing, "0") map.get($spacing, "2xl");
+			}
+
+			.b-product-grid {
+
+				&_row {
+					overflow: hidden;
+					position: relative;
+				}
+
+				&__heading:not(.aligment) {
+					text-align: center;
+				}
+			}
+
+			.container {
+				padding: map.get($spacing, "0")  map.get($spacing, "3xl");
+			}
+
+			.title {
+				margin-bottom: map.get($spacing, "m");
+			}
+		}
+
+		&.l-column {
+
+			.post-title {
+				font-size: $h4-font-size-desktop;
+				line-height: $h4-line-height-desktop;
+			}
+
+			.b-product-grid {
+
+				.c-image {
+					height: 432px;
+				}
+
+				&_row {
+
+					.swiper {
+
+						&-slide {
+
+							@include slideWidth (24px, 4.2);
+						}
+					}
+				}
+			}
+
+			.right-mask {
+
+				&::before {
+
+					height: 432px;
+					width: 100px !important;
+				}
+			}
+		}
+
+		&.l-animated {
+
+			.b-product-grid {
+
+				.c-image {
+					height: 370px;
+				}
+
+				&_row {
+
+					.swiper {
+
+						&-slide {
+
+							@include slideWidth (24px, 4);
+						}
+					}
+				}
+			}
+
+			.right-mask {
+
+				&::before {
+					height: 390px;
+				}
+			}
+
+			.left-mask {
+
+				&::before {
+
+					content: "";
+					position: absolute;
+					display: block;
+					width: 200px;
+					height: 390px;
+					left: map.get($spacing, "0");
+					top: map.get($spacing, "0");
+					bottom: -1px;
+					background: linear-gradient(270deg, rgba(27, 38, 49, 0) 50% 20%, $white 100% 100%);
+					z-index: 4;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(max-md) {
+
+		.c-image {
+			height: 273px;
+		}
+
+		.container {
+			padding: map.get($spacing, "0") map.get($spacing, "0") map.get($spacing, "0") map.get($spacing, "m");
+		}
+
+		.b-products-grid-v2 {
+
+			&_heading {
+
+				padding: map.get($spacing, "0") map.get($spacing, "m");
+			}
+
+
+			.b-product-grid {
+
+				.swiper {
+
+					&-slide {
+						margin: map.get($spacing, "0") map.get($spacing, "0") map.get($spacing, "s") map.get($spacing, "0");
+
+						&.ht-auto {
+							height: auto;
+						}
+					}
+				}
+
+				&_card {
+					height: 100%;
+				}
+			}
+		}
+
+		&.l-animated {
+
+			.is-active-mobile {
+
+				.gif {
+					display: block;
+				}
+
+				.fix-img {
+					display: none;
+				}
+			}
+		}
+
+		&.l-column {
+
+			.b-product-grid {
+
+				.c-image {
+					height: 432px;
+				}
+			}
+		}
+	}
+}

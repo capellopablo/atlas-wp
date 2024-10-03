@@ -1,0 +1,186 @@
+@use "sass:map";
+
+/** Config */
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-mass-media-grid-v2 {
+	padding: map.get($spacing, "2xl") 0;
+
+	@include breakpoint(md) {
+		padding: map.get($spacing, "3xl") 0;
+	}
+
+	@include breakpoint(max-md) {
+
+		&_heading {
+			padding: 0 map.get($spacing, "3xl") 0;
+		}
+	}
+
+	.b-mass-media-grid {
+
+		&_row {
+
+			@include breakpoint(max-md) {
+				padding: map.get($spacing, "2xs") map.get($spacing, "m");
+			}
+		}
+
+		&_card {
+
+			.c-card {
+				height: 100%;
+				width: 100%;
+
+				&_description {
+					justify-content: initial;
+
+					&-empty {
+						justify-content: center;
+					}
+				}
+
+				.c-image {
+
+					.img-fluid {
+						object-fit: contain;
+						padding: 0 16px;
+					}
+				}
+			}
+
+		}
+
+		.swiper {
+
+			&-slide {
+				height: auto;
+
+				.b-mass-media-grid {
+
+					&_card {
+						height: 100%;
+					}
+				}
+			}
+
+			&-wrapper {
+				margin-bottom: 10px;
+			}
+
+			@include breakpoint(md) {
+
+				padding: 0 16px;
+
+				&__arrows {
+					position: absolute;
+					z-index: 3;
+					top: 0;
+					bottom: 0;
+					display: flex;
+					align-items: center;
+
+					&.left {
+						left: 3px;
+					}
+
+					&.right {
+						right: 3px;
+					}
+				}
+
+				&__arrow {
+					padding: 0;
+					border: none;
+					background: none;
+					cursor: pointer;
+
+					.c-icon {
+						width: 48px;
+						height: 48px;
+						min-height: 48px;
+						min-width: 48px;
+						align-items: center;
+						justify-content: center;
+						background: $white;
+						border-radius: 50%;
+						box-shadow: 0 6px 10px rgb(1 21 52 / 16%);
+
+						img {
+							filter: none;
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+	.r-mass-media-grid-v2 {
+
+		&_skeleton-loader {
+
+			&.container {
+				overflow: hidden;
+				padding-bottom: 10px;
+
+				@include breakpoint(md) {
+					padding: 0 0 10px 0;
+				}
+			}
+
+			&__grid {
+				display: flex;
+				gap: 16px;
+
+				@include breakpoint(md) {
+					gap: 24px;
+					justify-content: center;
+
+				}
+
+			}
+
+			&__card {
+				overflow: hidden;
+
+				> div {
+					display: flex;
+				}
+
+				@include breakpoint(max-md) {
+					width: 100%;
+					max-width: 328px;
+					min-width: 288px;
+
+					&:nth-child(n+5) {
+						display: none;
+					}
+				}
+
+				&_wrapper {
+					flex-direction: column;
+					padding: 18px 15px 15px;
+					gap: 6px;
+
+					@include breakpoint(md) {
+						padding: 19px 15px 15px;
+						gap: 7px;
+					}
+
+					.c-skeleton-loader {
+						max-width: 100%;
+
+						@include breakpoint(max-md) {
+
+							&:last-child {
+								width: 166px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

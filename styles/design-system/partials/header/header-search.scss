@@ -1,0 +1,274 @@
+/** Config */
+@use "sass:map";
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+
+$tablet-breakpoint: 1100px;
+$desktop-breakpoint: 1300px;
+
+// -- Header --
+header {
+
+	&.header {
+
+		&_box {
+
+			&__has-search {
+
+				@include breakpoint(max-width, $tablet-breakpoint) {
+
+					&.is {
+
+						&_expanded {
+
+							.menu {
+
+								&_box {
+
+									&#primary-menu {
+										top: calc(100% + 80px);
+									}
+								}
+							}
+
+							.search {
+
+								&_form {
+									background: var(--aprende--white);
+
+									&:not(.r-search-mega-menu) {
+										transition: all 0.2s ease;
+										position: absolute;
+										top: 100%;
+										left: -16px;
+										transform: scaleY(1);
+										visibility: visible;
+										opacity: 1;
+									}
+
+									.c-icon {
+										display: flex;
+									}
+
+									.c-input {
+										padding-bottom: 0;
+									}
+
+									&__is-open {
+										position: fixed;
+										left: 0;
+										top: 0;
+										width: 100vw;
+										background: var(--aprende--white);
+										z-index: 99;
+
+										&:not(.r-search-mega-menu) {
+											height: 100vh;
+											top: 0;
+											padding: map.get($spacing, "m") map.get($spacing, "m") map.get($spacing, "l") map.get($spacing, "m");
+										}
+
+										&.r-search-mega-menu {
+											height: 100%;
+											padding: map.get($spacing, "m");
+										}
+
+										form {
+											padding-top: map.get($spacing, "m");
+
+											.r-search-form {
+
+												&_results {
+													display: block;
+												}
+											}
+										}
+									}
+
+									&__close-overlay {
+										width: 80px;
+										cursor: pointer;
+
+										&:not(.r-search-mega-menu) & {
+											padding: map.get($spacing, "l") 0;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				@include breakpoint(min-width, $tablet-breakpoint) {
+
+					.header {
+						gap: 0;
+
+						&_row:first-of-type {
+							width: 100%;
+							margin-right: map.get($spacing, "s");
+
+							.menu {
+
+								&_box#primary-menu {
+									margin: 0 map.get($spacing, "xl");
+									gap: map.get($spacing, "xl");
+
+									li.item-right {
+										margin: 0;
+									}
+
+									> li.menu-item-has-children > a {
+										padding-right: map.get($spacing, "xl");
+									}
+								}
+							}
+						}
+
+						.virtual {
+							transition: all 0.5s ease;
+							overflow: hidden;
+
+							&.hidden {
+								max-width: 0;
+								padding: 0;
+								margin: 0;
+								border: none;
+							}
+						}
+					}
+				}
+
+				@include between-breakpoints-widths($tablet-breakpoint, $desktop-breakpoint) {
+
+					.r-search-form {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+// -- Search --
+.search {
+
+	&_form {
+
+		@include breakpoint(max-width, $tablet-breakpoint) {
+
+			&.r-search-standard {
+				transform: scaleY(0);
+				transform-origin: 50% 0;
+				opacity: 0;
+				width: calc(100% + 32px);
+				padding: map.get($spacing, "m");
+			}
+		}
+
+		.c-input {
+			padding-bottom: map.get($spacing, "xs");
+
+			&_native-control {
+
+				&:not(.c-input_native-control__error) { /* stylelint-disable-line */
+					border: 1px solid var(--aprende--secondary-600);
+				}
+			}
+
+			&_native-control,
+			&_label {
+				background: var(--aprende--tertiary-100);
+			}
+		}
+
+		.r-search-form {
+
+			&_results {
+				width: 100%;
+				max-width: 100%;
+				margin-top: map.get($spacing, "xs");
+				display: none;
+
+				&_item {
+					display: flex;
+					text-decoration: none;
+					padding: map.get($spacing, "s") map.get($spacing, "m");
+					font-weight: $font-regular;
+					border-radius: map.get($border-radius, "s");
+
+					&_load-more {
+						font-weight: $font-semi-bold;
+						text-decoration: underline;
+						color: var(--aprende--primary);
+						background: unset;
+						border: unset;
+						border-radius: map.get($border-radius, "s");
+						width: 100%;
+						cursor: pointer;
+						padding: map.get($spacing, "s") map.get($spacing, "m") map.get($spacing, "xs");
+
+						span {
+							font-family: $font-main;
+							font-size: $font-size-m;
+							line-height: $line-height-m;
+							color: var(--aprende--primary);
+						}
+					}
+
+					@media (hover: hover) {
+
+						&:hover {
+							background-color: var(--aprende--tertiary-100);
+						}
+					}
+
+					&:active {
+						background-color: var(--aprende--tertiary-100);
+					}
+				}
+			}
+		}
+	}
+
+	@include breakpoint(min-width, $tablet-breakpoint) {
+
+		&_form {
+			display: block;
+			width: 100%;
+			position: relative;
+			transform: unset;
+			opacity: 1;
+			padding: 0;
+			transition: all 0.5s ease;
+
+			.r-search-form {
+
+				&_results {
+					display: block;
+					opacity: 1;
+					position: absolute;
+					margin: 0;
+					top: 48px;
+					background: var(--aprende--tertiary-100);
+					border-radius: map.get($border-radius, "s");
+					box-shadow: map.get($elevations, 2);
+					border: solid 1px var(--aprende--secondary-700);
+					animation: FadeIn 0.2s ease;
+				}
+			}
+
+			form {
+
+				&:not(.on-focus) .r-search-form {
+
+					&_results {
+						animation: FadeOut 0.2s ease;
+						opacity: 0;
+						pointer-events: none;
+					}
+				}
+			}
+		}
+	}
+}

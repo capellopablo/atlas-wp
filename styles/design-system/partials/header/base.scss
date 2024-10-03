@@ -1,0 +1,407 @@
+@use "sass:map";
+
+$tablet-breakpoint: 1100px;
+
+header {
+
+	&.header {
+
+		&_box {
+			display: block;
+			position: relative;
+			background-color: $white;
+			z-index: 998;
+
+			&.l-new-design-system {
+
+				&_desktop {
+					display: none;
+				}
+
+				@include breakpoint(min-width, $tablet-breakpoint) {
+
+					&_mobile {
+						display: none;
+					}
+
+					&_desktop {
+						display: block;
+					}
+				}
+			}
+
+			.contents {
+				display: block;
+				top: 0;
+				right: 0;
+				left: 0;
+				background-color: inherit;
+				transition: top 0.3s ease-in-out;
+
+				.admin-bar & { // Adjust top to WP Admin bar when present.
+					top: 46px;
+
+					@include breakpoint("md") {
+						top: 32px;
+					}
+				}
+			}
+
+			.header {
+				position: relative;
+				height: 72px;
+
+				&-container {
+					max-width: 100%;
+					margin: 0 auto;
+
+					@include breakpoint(max-width, 1365px) {
+						max-width: 1280px;
+						padding: 0 map.get($spacing, "m");
+					}
+
+					@include breakpoint(min-width, 1366px) {
+						max-width: 1366px;
+						padding: 0 map.get($spacing, "l");
+					}
+				}
+
+				&_row {
+					gap: map.get($spacing, "m");
+				}
+
+				@include breakpoint(min-width, $tablet-breakpoint) {
+					height: 70px;
+					gap: map.get($spacing, "xl");
+				}
+
+				@include breakpoint(max-width, $tablet-breakpoint) {
+
+					&_campus-text {
+
+						.campus {
+
+							a {
+								background-color: $white;
+								color: var(--aprende--primary);
+								display: grid;
+								place-items: center;
+								margin: 0 auto;
+								padding: map.get($spacing, "s");
+
+								&:hover {
+									background-color: $white;
+								}
+							}
+						}
+
+					}
+				}
+
+			}
+
+			&.layout-simple,
+			&.layout-new-design-system {
+
+				.logo {
+					display: block;
+					position: relative;
+					top: -2px;
+					flex-grow: 0;
+					flex-shrink: 0;
+					height: 31.08px;
+					background: url(../../images/ico_logo.png) 50% 50% no-repeat;
+					background-size: contain;
+
+					@include breakpoint(max-width, $tablet-breakpoint) {
+						width: 193px;
+					}
+
+					@include breakpoint(min-width, $tablet-breakpoint) {
+						width: 206px;
+						margin-top: map.get($spacing, "2xs");
+						height: 32px;
+						margin-right: 0;
+					}
+				}
+			}
+
+			.menu {
+
+				&_box {
+					align-self: stretch;
+					margin-right: auto;
+				}
+
+				&_btn {
+					display: none;
+					position: relative;
+					width: 35px;
+					height: 35px;
+
+					@media (hover: hover) {
+						cursor: pointer;
+					}
+
+					&-content {
+
+						&::before,
+						&::after,
+						span {
+							content: "";
+							display: block;
+							position: absolute;
+							top: 50%;
+							box-sizing: border-box;
+							width: 20px;
+							height: 2px;
+							margin-top: -1px;
+							margin-left: 2px;
+							border-radius: 3px;
+							background-color: var(--aprende--secondary-700);
+							transition: 0.2s;
+						}
+
+						// Hamburger lines spacing //
+						&::after {
+							margin-top: -7px;
+						}
+
+						&::before {
+							margin-top: 5px;
+						}
+					}
+
+				}
+			}
+
+			.phone {
+				white-space: nowrap;
+				text-decoration: none;
+				color: var(--aprende--secondary-700);
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				@include breakpoint(min-width, $tablet-breakpoint) {
+					font-weight: $font-semi-bold;
+					font-size: $font-size-m;
+					line-height: $line-height-m;
+				}
+			}
+
+			.icon {
+				display: inline-block;
+				width: 20px;
+				height: 18px;
+				margin-right: map.get($spacing, "2xs");
+				background-size: contain;
+				vertical-align: middle;
+			}
+
+			.btn-campus {
+				white-space: nowrap;
+				max-width: initial;
+				transition: all 0.5s ease;
+				overflow: hidden;
+
+				&.hidden {
+					border: none;
+					margin: 0;
+					opacity: 0;
+					max-width: 0;
+					padding: 0;
+				}
+			}
+
+			.images {
+				display: flex;
+				align-items: stretch;
+				justify-content: center;
+				width: 100%;
+
+				&.phone-displayed {
+					justify-content: space-between;
+				}
+			}
+
+			.image {
+				display: flex;
+				flex-basis: 0;
+				flex-grow: 1;
+				align-items: center;
+				justify-content: center;
+				max-width: 200px;
+				padding: 0 map.get($spacing, "m");
+
+				img {
+					display: block;
+					width: auto;
+					max-width: 100%;
+					height: auto;
+					max-height: 70px;
+				}
+			}
+
+			&.layout-b2b {
+
+				.container {
+
+					.logos {
+
+						.logo {
+							display: block;
+							height: 30px;
+							min-width: 28px;
+							background: url(../../images/logotipo.svg) 50% 50% no-repeat;
+							background-size: contain;
+
+							@include breakpoint(min-width, $tablet-breakpoint) {
+								height: 32px;
+								min-width: 205px;
+								background-image: url(../../images/logotipo_light_large.svg);
+							}
+						}
+
+						.c-image {
+							padding-left: map.get($spacing, "m");
+							border-left: 1px solid var(--aprende--secondary-400);
+							height: 100%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							img {
+								height: unset;
+								max-height: 32px;
+								width: auto;
+								object-fit: contain;
+							}
+						}
+					}
+				}
+
+				&.header {
+
+					&_box {
+
+						&__has-phone {
+
+							.container {
+								justify-content: space-between;
+							}
+						}
+					}
+				}
+			}
+
+
+			@include breakpoint(max-width, $tablet-breakpoint) {
+
+				&.is {
+
+					&_expanded {
+						z-index: 99999999;
+
+						&.mega-menu {
+							position: fixed;
+							width: 100%;
+						}
+
+						.menu {
+
+							&_box {
+								transform: scaleY(1);
+								visibility: visible;
+								opacity: 1;
+							}
+
+							&_btn {
+
+								&-content {
+
+									&::before,
+									&::after {
+										width: 19px;
+										margin-top: -1px;
+										border-bottom: none;
+										transform: rotate(45deg);
+									}
+
+									&::after {
+										transform: rotate(-45deg);
+									}
+
+									span {
+										opacity: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.phone {
+					flex-grow: 0;
+					flex-shrink: 0;
+					width: 24px;
+					height: 30px;
+					border-radius: 50%;
+					background: url(../../images/phone_mobile.svg) 50% 50% no-repeat;
+					color: transparent;
+					font-size: 0;
+					line-height: 0;
+
+					.c-icon {
+						display: none;
+					}
+				}
+
+				&.layout-new-design-system {
+
+					.phone {
+						margin: 0 map.get($spacing, "xs");
+					}
+
+					.logo {
+						margin: 2px 0 0 0;
+					}
+				}
+
+				.menu {
+
+					&_box {
+						margin: 0;
+						transform: scaleY(0);
+						transform-origin: 50% 0;
+						visibility: hidden;
+						opacity: 0;
+					}
+
+					&_btn {
+						display: block;
+					}
+				}
+
+				.btn-campus {
+
+					&.standard {
+						display: none;
+					}
+				}
+
+				.image {
+					padding: 0 10px;
+				}
+			}
+
+			@include breakpoint(max-width, $tablet-breakpoint) {
+
+				.image {
+					padding: 0 5px;
+				}
+			}
+		}
+	}
+}

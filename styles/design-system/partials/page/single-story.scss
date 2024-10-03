@@ -1,0 +1,94 @@
+@use "sass:map";
+
+/** Config */
+@import "../../config/variables";
+@import "../../config/mixins/breakpoints";
+@import "../../config/mixins/list";
+
+// -- Stories --
+.single-story,
+.single-ap-story {
+
+	/* stylelint-disable */
+	.wrapper_box {
+
+		.content_box {
+			/* stylelint-enable */
+
+			.content {
+
+				.author {
+
+					.content {
+
+						.quote {
+							font-style: italic;
+						}
+					}
+				}
+
+				blockquote p {
+					position: relative;
+					quotes: "“" "”";
+					padding: 0 15px;
+					font-style: italic;
+					line-height: 1.5;
+					font-size: 18px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(md) {
+
+		.stories-title {
+			text-align: center;
+		}
+
+		/* stylelint-disable */
+		.wrapper_box {
+
+			.content_box {
+				/* stylelint-enable */
+
+				.content {
+
+					.author {
+						text-align: left;
+						flex-direction: row;
+						gap: 0;
+
+						.hero {
+							width: auto;
+							height: 186px;
+						}
+
+						.content {
+
+							h1 {
+								margin-bottom: 0;
+							}
+
+							.title {
+								justify-content: flex-start;
+
+								.c-icon {
+
+									> svg {
+										width: 48px;
+										height: 48px;
+									}
+								}
+							}
+						}
+					}
+
+					blockquote p {
+						font-size: 20px;
+					}
+				}
+
+			}
+		}
+	}
+}

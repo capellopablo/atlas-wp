@@ -1,0 +1,18 @@
+// Configuration
+@import "~@aprende-com/design-system/scss/config/fonts";
+@import "variables-2";
+@import "../config/mixins";
+@import "../config/mixins/breakpoints";
+@import "../config/functions";
+
+// Base styles
+@import "../base";
+
+// Utilities classes
+@import "../utilities";
+
+// Components
+@import "../components";
+
+// Partials
+@import "../partials";

@@ -1,0 +1,103 @@
+@use "sass:map";
+
+/** Config */
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-publications-grid-v2 {
+	padding: map.get($spacing, "2xl") 0;
+
+	@include breakpoint(md) {
+		padding: map.get($spacing, "3xl") 0;
+	}
+
+	.b-publications-grid {
+
+		&_heading {
+
+			@include breakpoint(md) {
+				padding: 0 map.get($spacing, "xs");
+			}
+		}
+
+		&_card {
+			text-decoration: none;
+
+			.c-card {
+				height: 100%;
+				width: 100%;
+
+				.c-image {
+					padding: 0;
+
+					@include breakpoint(max-md) {
+						height: 140px;
+						min-height: 140px;
+					}
+
+					@include breakpoint(md) {
+						height: 125px;
+						min-height: 125px;
+					}
+
+					.img-fluid {
+						object-fit: contain;
+						padding: map.get($spacing, "m") map.get($spacing, "2xs");
+					}
+				}
+			}
+		}
+
+		&_load-more {
+			width: 100%;
+
+			.btn-primary {
+
+				@include breakpoint(max-md) {
+					margin: map.get($spacing, "xs") 0 0;
+				}
+
+				@include breakpoint(md) {
+					margin: map.get($spacing, "m") 0 0;
+				}
+			}
+
+		}
+	}
+
+	.r-publications-grid-v2 {
+
+		&_skeleton-loader {
+
+			&__card {
+				overflow: hidden;
+
+				@include breakpoint(max-md) {
+					width: 100%;
+					max-width: 328px;
+					margin: 0 0 map.get($spacing, "xl") 0;
+
+					&:nth-child(n+5) {
+						display: none;
+					}
+				}
+
+				@include breakpoint(md) {
+					width: 292px;
+					margin: 0 map.get($spacing, "s") 26px;
+				}
+
+				:not(:first-child) {
+					padding: map.get($spacing, "xs") 0 0 map.get($spacing, "m");
+				}
+			}
+
+			&__cta {
+
+				@include breakpoint(md) {
+					margin-top: map.get($spacing, "xl");
+				}
+			}
+		}
+	}
+}

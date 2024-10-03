@@ -1,0 +1,186 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/background-overlay";
+
+$block-name: ".b-timer-v2";
+
+#{$block-name} {
+	background-color: $white;
+	max-width: 100vw;
+
+	&.position-sticky-top,
+	&.position-sticky-bottom {
+		position: fixed;
+		width: 100%;
+		z-index: 999999;
+	}
+
+	&.position-sticky-top {
+		top: 0;
+		box-shadow: map.get($elevations, 1);
+
+		.admin-bar & { // Adjust top to WP Admin bar when present.
+			top: 46px;
+
+			@include breakpoint(md) {
+				top: 32px;
+			}
+		}
+	}
+
+	&.position-sticky-bottom {
+		bottom: 0;
+		box-shadow: map.get($elevations, 3);
+	}
+
+	&_container {
+		padding: 0;
+
+		@include breakpoint(lg) {
+			padding: map.get($spacing, "l") 0;
+		}
+
+		&__hidden {
+			display: none;
+		}
+	}
+
+	&_content {
+		position: relative;
+
+		&-flex {
+			flex-direction: column;
+			padding: map.get($spacing, "s") map.get($spacing, "m");
+			gap: map.get($spacing, "xs");
+
+			@include breakpoint(lg) {
+				flex-direction: row;
+				padding: 0;
+				gap: map.get($spacing, "xl");
+			}
+		}
+
+		&-col {
+
+			&.content-text {
+				flex-direction: column;
+
+				@include breakpoint(lg) {
+					flex-direction: row;
+				}
+			}
+
+			&.content-timer {
+				gap: map.get($spacing, "m");
+
+				@include breakpoint(lg) {
+					gap: map.get($spacing, "l");
+				}
+			}
+		}
+	}
+
+	&_timer {
+		font-weight: $font-bold;
+		font-size: $h4-font-size;
+
+		@include breakpoint(lg) {
+			margin-right: map.get($spacing, "l");
+		}
+
+		#{$block-name}.style-white & {
+			color: var(--aprende--primary);
+
+			@include breakpoint(lg) {
+				color: var(--aprende--secondary-600);
+			}
+		}
+
+		#{$block-name}.style-gray & {
+			color: var(--aprende--primary);
+
+			@include breakpoint(lg) {
+				color: var(--aprende--secondary-600);
+			}
+		}
+
+		&__no-button {
+
+			@include breakpoint(lg) {
+				margin: 0;
+			}
+		}
+	}
+
+	&_button {
+
+		.button-type {
+
+			&_text {
+				display: inline-block;
+				text-decoration: underline;
+				font-size: $font-size-m;
+				align-content: center;
+				padding: 0;
+
+				@include breakpoint(lg) {
+					display: none;
+				}
+
+				&.text-white {
+					color: $white;
+				}
+
+				&.text-secondary {
+					color: var(--aprende--secondary-600);
+				}
+			}
+
+			&_default {
+				display: none;
+
+				@include breakpoint(lg) {
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	&_close {
+		position: absolute;
+		top: map.get($spacing, "l");
+		right: map.get($spacing, "xs");
+		transform: translateY(-50%);
+
+		@include breakpoint(lg) {
+			right: calc(((100% - 1280px) / 2) + 16px);
+			top: 50%;
+		}
+
+		@include breakpoint(1366px) {
+			right: calc(((100% - 1366px) / 2) + 24px);
+			top: 50%;
+		}
+
+		.c-icon {
+
+			&.white,
+			&.gray {
+
+				g path {
+					fill: $black;
+				}
+			}
+
+			&.red {
+
+				g path {
+					fill: $white;
+				}
+			}
+
+		}
+	}
+}
