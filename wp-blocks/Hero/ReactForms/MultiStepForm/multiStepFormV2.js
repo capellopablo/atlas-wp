@@ -101,7 +101,7 @@ const MultiStepFormV2 = ({settings}) => {
 		is_phone_mobile: 'true',
 		referrer: (referrerBaseURL())?.toLowerCase(),
 		page_url: 'https://qa.aprende.dev/landing/rmkt-cursos-latam/',
-		user_agent: navigator.userAgent,
+		//user_agent: navigator.userAgent,
 		leadSource: leadSourceField,
 	});
 
@@ -445,9 +445,9 @@ const MultiStepFormV2 = ({settings}) => {
 
 			}
 
-			await api.postLead({...payload});
+			//await api.postLead({...payload});
 			if (showNightleadConsent && _userValues?.after_hour_consent === 'true' && !honeypotDetected) {
-				await processLead(_userValues.email);
+				//await processLead(_userValues.email);
 			}
 
 			/** Push GTM events */
