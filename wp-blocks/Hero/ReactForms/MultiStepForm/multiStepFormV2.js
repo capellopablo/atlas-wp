@@ -67,16 +67,19 @@ import {
 } from '../hooks/useAjaxGetSanitizedLeadEmail';
 // import { trackVWOFormSubmitted, getVWOExperiment } from '../../../externals/vwo';
 import useUTMParams from '../hooks/useUTMParams';
+import useHeaders from '../../../hooks/useHeaders';
+
 // import { useAutofillReferralsEmail } from '../hooks/useAutofillReferralsEmail';
 /* eslint-disable */
 
 const MultiStepFormV2 = ({settings}) => {
+	const headersData = useHeaders();
 	const [formSettings] = useState(JSON.parse(settings));
 	const [formFields] = useState(formSettings.steps);
 	const [currentStep, setCurrentStep] = useState(0);
 	const [transition, setTransition] = useState(false);
 	const ipAddress = useIP();
-	const [userCountry, setUserCountry] = useState('US');
+	const [userCountry, setUserCountry] = useState(headersData?.country ?? 'US');
 	const salesforce = formSettings.store.salesforce;
 	const exactTarget = formSettings.store.exact_target;
 	const dataExtension = exactTarget && formSettings.store.data_extension;

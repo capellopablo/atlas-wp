@@ -1,12 +1,19 @@
 import { gql } from '@apollo/client';
+import useHeaders from './hooks/useHeaders';
 
 export default function AprendeBlocksText (props) {
 	const {title} = props.attributes;
+	const headersData = useHeaders();
 
 	return (
 		<section
 			className="block b-text-v2 l-image-right bg-white pb-3xl pt-3xl"
 			id="" data-apt-e-seen="1" data-apt-key="b-text-v2-l-image-right">
+
+			{headersData?.country === 'AR' && (
+				<div className="container heading-3 m-l">This text will only be visible to users from AR</div>
+			)}
+
 			<div className="container">
 				<div className="row justify-center direction-row-r">
 					<div className="col-4 col-md-3 col-lg-5">

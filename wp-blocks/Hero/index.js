@@ -2,10 +2,13 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gql } from '@apollo/client';
 import BackgroundImageHero from './background';
 import Form from './form';
+import useHeaders from '../hooks/useHeaders';
 
 export default function AprendeBlocksHero (props) {
 	const {title: initialTitle, subtitle} = props.attributes;
 	const [title, setTitle] = useState(initialTitle);
+
+	const headersData = useHeaders();
 
 	const ref = useRef();
 
@@ -67,6 +70,8 @@ export default function AprendeBlocksHero (props) {
 						style={{height: 'initial'}} ref={ref}>
 
 						<h1 className="c-heading" dangerouslySetInnerHTML={{__html: title}}/>
+
+						<h4 className="mt-l">This a dynamic heading with country {headersData.country}, region {headersData.region} with timezone {headersData.timezone}</h4>
 
 						<div className="content_subtitle mt-m mx-0"><p dangerouslySetInnerHTML={{__html: subtitle}}/></div>
 
