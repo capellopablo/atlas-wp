@@ -11,7 +11,9 @@ export default function AprendeBlocksText (props) {
 			id="" data-apt-e-seen="1" data-apt-key="b-text-v2-l-image-right">
 
 			{headersData?.country === 'AR' && (
-				<div className="container heading-3 m-l">This text will only be visible to users from AR</div>
+				<div className="container bg-secondary-100 p-l my-l">
+					<p className="heading-3">This text will only be visible to users from AR</p>
+				</div>
 			)}
 
 			<div className="container">

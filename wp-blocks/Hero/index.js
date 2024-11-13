@@ -61,7 +61,7 @@ export default function AprendeBlocksHero (props) {
 
 		>
 			<div className="b-hero-v2_container standard">
-				<BackgroundImageHero/>
+				<BackgroundImageHero country={headersData?.country} />
 
 				<div
 					className="b-hero-v2_block-foreground pb-m b-hero-v2_l-standard">
@@ -71,7 +71,17 @@ export default function AprendeBlocksHero (props) {
 
 						<h1 className="c-heading" dangerouslySetInnerHTML={{__html: title}}/>
 
-						<h4 className="mt-l">This a dynamic heading with country {headersData.country}, region {headersData.region} with timezone {headersData.timezone}</h4>
+						{headersData?.country && (
+							<>
+								<h4 className="mt-l">This a dynamic heading with country {headersData.country}, region {headersData.region} and timezone {headersData.timezone}</h4>
+
+								{headersData?.country === 'AR' && (
+									<a className="c-button btn-primary btn-lg mt-l justify-center" target="" href="#" data-component="1">
+										<span className="ta-center">Dynamic button AR</span>
+									</a>
+								)}
+							</>
+						)}
 
 						<div className="content_subtitle mt-m mx-0"><p dangerouslySetInnerHTML={{__html: subtitle}}/></div>
 
