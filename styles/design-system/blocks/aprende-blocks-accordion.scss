@@ -27,10 +27,6 @@
 
     @include breakpoint(md) {
         padding: map.get($spacing, "3xl") 0;
-
-        &_heading {
-            text-align: center;
-        }
     }
 
     //Layout: two-columns
@@ -312,4 +308,29 @@
             }
         }
     }
+
+    // Layout: Default
+    &.l-default {
+
+		.b-accordion-v2 {
+
+			&_container {
+				max-width: 808px;
+				margin: 0 auto;
+			}
+		}
+
+        .c-accordion {
+            
+            &_item {
+                border: 1px solid var(--aprende--secondary-200); //actualziar color con mock
+            }
+        }
+
+		@include breakpoint(md) {
+			.c-button {
+				padding: map.get($spacing, "s") map.get($spacing, "l");
+			}
+		}
+	}
 }
