@@ -17,7 +17,6 @@ export default function Component(props) {
   const menuItems = props.data.primaryMenuItems.nodes;
   const { title, content, editorBlocks } = props.data.page;
 
-console.log('editorBlocks', editorBlocks)
   return (
     <>
       <Head>
