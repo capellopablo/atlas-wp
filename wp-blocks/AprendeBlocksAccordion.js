@@ -36,7 +36,7 @@ export default function AprendeBlocksAccordion (props) {
 			data-apt-key="b-accordion-v2-l-default">
 			<div className="container">
 				<div
-					className="b-accordion-v2_heading ta-center mb-l mx-auto col-lg-8 p-0">
+					className="b-accordion-v2_heading ta-center mb-m mx-auto col-lg-8 p-0">
 					<h3 className="c-heading"
 						dangerouslySetInnerHTML={{__html: title}}/>
 				</div>

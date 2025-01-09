@@ -43,7 +43,7 @@
         .c-accordion {
             
             &_item {
-                border: 1px solid var(--aprende--secondary-200); //actualizar color con mock
+                border: 1px solid #D6DEE3;
                 border-radius: map.get($spacing, "xs");
             }
         }
