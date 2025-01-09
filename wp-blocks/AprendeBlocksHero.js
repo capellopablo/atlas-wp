@@ -18,14 +18,19 @@ export default function AprendeBlocksHero (props) {
 			<div className="container">
 				<div className="b-hero-v2_wrapper d-flex justify-center">
 					<div className="b-hero-v2_wrapper_content d-flex direction-column align-center">
-						<div className="b-hero-v2_wrapper_content--text col-lg-6 d-flex direction-column">
-							<h1 className="c-heading mb-s" dangerouslySetInnerHTML={{__html: title}}/>
-							<div className="text-l mb-m" dangerouslySetInnerHTML={{__html: subtitle}}/>
-							<div className="d-flex gap-l">
+						<div className={`b-hero-v2_wrapper_content--text col-lg-${image ? '6' : '12'} d-flex direction-column`}>
+							{title && (
+								<h1 className="c-heading mb-s">{title}</h1>
+							)}
+							{subtitle && (
+								<div className="text-l mb-m">{subtitle}</div>
+							)}
+							<div className="d-flex gap-m">
 							{cta && (
 								<Button
 									className="btn-primary btn-md"
-									onClick={handleOpenModal}
+									onClick={openForm ? handleOpenModal : undefined}
+									href={!openForm ? ctaUrl : undefined}
 								>
 									{cta}
 								</Button>
@@ -33,34 +38,34 @@ export default function AprendeBlocksHero (props) {
 							{secondCta && (
 								<Button
 									className="btn-primary-text btn-md"
-									onClick={function noRefCheck() {}}
+									href={secondCtaUrl}
 								>
 									{secondCta}
 								</Button>
 							)}
 							</div>
 						</div>
-						<div className="b-hero-v2_wrapper_content--image col-lg-6">
-							<picture>
-								<source
-								srcSet={image}
-								media="(max-width: 397px)"/>
-								<img
-								height="224"
-								src={image}
-								className="img-fluid" alt={imageAlt}
-								srcSet={image}
-								loading="lazy" lazy="1"
-								sizes="(max-width: 397px) 100vw, 397px"/>
-							</picture>
-						</div>
+						{image && (
+							<div className="b-hero-v2_wrapper_content--image col-lg-6 p-0">
+								<picture>
+									<source
+									srcSet={image}
+									/>
+									<img
+									src={image}
+									alt={imageAlt}
+									loading="lazy" lazy="1"
+									/>
+								</picture>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
 			<Modal isOpen={isOpen} onClose={handleModalClose}>
-				<h5>¡Hola! Este es un modal de prueba 👋</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      		</Modal>
+				<h5>¡Hola! Este es un modal de prueba</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			</Modal>
 		</section>
 	);
 }
@@ -69,9 +74,9 @@ AprendeBlocksHero.displayName = 'AprendeBlocksHero';
 
 AprendeBlocksHero.fragments = {
 	entry: gql`
-        fragment AprendeBlocksHeroFragment on AprendeBlocksHero {
-            attributes {
-                title,
+		fragment AprendeBlocksHeroFragment on AprendeBlocksHero {
+			attributes {
+				title,
 				subtitle,
 				cta,
 				ctaUrl,
@@ -80,9 +85,9 @@ AprendeBlocksHero.fragments = {
 				secondCtaUrl,
 				image,
 				imageAlt,
-                className
-            }
-        }
+				className
+			}
+		}
 	`,
 	key: `AprendeBlocksHeroFragment`,
 };
