@@ -8,10 +8,8 @@ export default function Modal({ isOpen, onClose, children }) {
 	return (
 		<div className="c-modal__overlay" onClick={onClose}>
 			<div className="c-modal__content" onClick={(e) => e.stopPropagation()}>
-			<button className="c-modal__content__button" onClick={onClose}>
-				<Icon
-				icon="close"
-				/>
+			<button className="c-modal__content__button" onClick={(e) => {e.stopPropagation(); onClose();} }>
+				<Icon icon="close"/>
 			</button>
 				{children}
 			</div>

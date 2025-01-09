@@ -6,73 +6,69 @@
 @import "../config/mixins/list";
 
 .b-hero-v2 {
-    overflow: hidden;
-    position: relative;
-    background-color: #F2F7F7;
-    padding: map.get($spacing, "2xl") 0;
+	overflow: hidden;
+	position: relative;
+	background-color: #F2F7F7;
+	padding: map.get($spacing, "2xl") 0;
 
-    .c-button {
-        min-width: fit-content;
-    }
+	.c-button {
+		min-width: fit-content;
+	}
 
-    &_wrapper {
+	&_wrapper {
 
-        &_content {
+		&_content {
 
-            &--text {
+			&--text {
 
-                > h1 {
-                    color: #2A2D5A;
-                    font-family: "Onest", sans-serif;
-                    font-weight: 700;
-                }
-            }
+				> h1 {
+					color: #2A2D5A;
+					font-family: "Onest", sans-serif;
+					font-weight: 700;
+				}
+			}
 
-            &--image {
-                display: none;
-            }
-        }
-    }
+			&--image {
+				display: none;
+			}
+		}
+	}
 
-    @include breakpoint(lg) {
-        padding: map.get($spacing, "3xl") 71px;
+	@include breakpoint(lg) {
+		padding: map.get($spacing, "3xl") 71px;
 
-        .container {
-            padding: 0;
-        }
+		.container {
+			padding: 0;
+		}
 
-        &_wrapper {
+		&_wrapper {
 
-            &_content {
-                flex-direction: row;
-                text-align: start;
-                gap: map.get($spacing, "l");
+			&_content {
+				flex-direction: row;
+				text-align: start;
+				gap: map.get($spacing, "l");
+				justify-content: center;
 
-                &--text {
-                    padding-right: map.get($spacing, "xl");
+				&--text {
+					padding-right: map.get($spacing, "l");
+				}
 
-                    > h1 {
-                        margin-bottom: map.get($spacing, "m");
-                    }
+				&--image {
+					display: flex;
+					border-radius: 5px;
 
-                    > .text-l {
-                        margin-bottom: map.get($spacing, "l");
-                    }
-                }
+					> picture {
 
-                &--image {
-                    display: flex;
-                    border-radius: 5px;
-
-                    > picture {
-
-                        > img {
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-            }
-        }
-    }
+						> img {
+							width: 100%;
+							height: auto;
+							aspect-ratio: 4/3;
+							object-fit: cover;
+							border-radius: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
 }
