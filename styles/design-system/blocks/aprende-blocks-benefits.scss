@@ -100,7 +100,6 @@
 
         &.l-standard {
 
-            .swiper {
 
                 &-wrapper {
                     display: flex;
@@ -116,38 +115,8 @@
                         margin-right: 0;
                     }
                 }
-            }
 
-            &.disabled-slider-desktop {
-
-                .swiper {
-                    overflow: visible;
-
-                    &__arrows {
-                        display: none;
-                    }
-
-                    &-wrapper {
-                        justify-content: center;
-                    }
-                }
-            }
-
-            &:not(&.disabled-slider-desktop) {
-
-                .swiper {
-                    padding: map.get($spacing, "m");
-                    margin: - map.get($spacing, "m");
-
-                    &__track {
-                        margin: - map.get($spacing, "s");
-                    }
-
-                    &-wrapper {
-                        justify-content: flex-start;
-                    }
-                }
-            }
+           
         }
     }
 
