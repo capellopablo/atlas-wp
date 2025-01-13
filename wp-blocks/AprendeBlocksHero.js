@@ -3,8 +3,8 @@ import  Button  from '@aprende-com/design-system/components/Button';
 import Modal from '../components/Modal';
 import { useState } from 'react';
 
-export default function AprendeBlocksHero (props) {
-	const {title, subtitle, cta, ctaUrl, openForm, secondCta, secondCtaUrl, image, imageAlt} = props.attributes;
+export default function AprendeBlocksHero ({attributes}) {
+	const {title, subtitle, cta, ctaUrl, openForm, secondCta, secondCtaUrl, image, imageAlt} = attributes;
 
 	const [isOpen, setIsOpen] = useState(false);
 
