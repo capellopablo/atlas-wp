@@ -1,0 +1,8 @@
+@use "sass:map";
+
+/* Gap Mixins */
+@mixin gap-classes($size, $value) {
+    &-#{$size} {
+        gap: map.get($spacing, $value);
+    }
+}

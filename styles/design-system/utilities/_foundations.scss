@@ -1,0 +1,94 @@
+// --Font sizes--
+
+.fs {
+	@include font-size-classes(h1, 40px);
+	@include font-size-classes(h2, 36px);
+	@include font-size-classes(h3, 24px);
+	@include font-size-classes(h4, 20px);
+	@include font-size-classes(h5, 20px);
+	@include font-size-classes(l, 18px);
+	@include font-size-classes(m, 16px);
+	@include font-size-classes(s, 14px);
+	@include font-size-classes(xs, 12px);
+
+	@include breakpoint(lg) {
+		@include font-size-classes(h1, 56px);
+		@include font-size-classes(h2, 48px);
+		@include font-size-classes(h3, 36px);
+		@include font-size-classes(h4, 28px);
+		@include font-size-classes(h5, 24px);
+		@include font-size-classes(l, 20px);
+		@include font-size-classes(m, 16px);
+		@include font-size-classes(s, 14px);
+		@include font-size-classes(xs, 12px);
+	}
+}
+
+
+// -- Line heights --
+
+.lh {
+	@include line-height-classes(h1, 48px);
+	@include line-height-classes(h2, 40px);
+	@include line-height-classes(h3, 28px);
+	@include line-height-classes(h4, 24px);
+	@include line-height-classes(h5, 24px);
+	@include line-height-classes(l, 28px);
+	@include line-height-classes(m, 24px);
+	@include line-height-classes(s, 18px);
+	@include line-height-classes(xs, 16px);
+
+	@include breakpoint(lg) {
+		@include line-height-classes(h1, 64px);
+		@include line-height-classes(h2, 56px);
+		@include line-height-classes(h3, 40px);
+		@include line-height-classes(h4, 36px);
+		@include line-height-classes(h5, 24px);
+		@include line-height-classes(l, 32px);
+		@include line-height-classes(m, 24px);
+		@include line-height-classes(s, 18px);
+		@include line-height-classes(xs, 16px);
+	}
+}
+
+// -- Gap rules --
+
+.gap {
+	@include gap-classes(2xsmall, "2xs");
+	@include gap-classes(xsmall, "xs");
+	@include gap-classes(small, "s");
+	@include gap-classes(medium, "m");
+	@include gap-classes(large, "l");
+
+	@include breakpoint(lg) {
+		@include gap-classes(2xsmall, "xs");
+		@include gap-classes(xsmall, "s");
+		@include gap-classes(small, "m");
+		@include gap-classes(medium, "l");
+		@include gap-classes(large, "xl");
+	}
+}
+
+// -- Margin rules --
+
+.m {
+	@include margin-classes(lr, "m");
+	@include margin-classes(tb, "2xl");
+	@include margin-classes(tb-reduced, "xl");
+
+	@include breakpoint(md) {
+		@include margin-classes(lr, "l");
+		@include margin-classes(tb, "2xl");
+		@include margin-classes(tb-reduced, "xl");
+	}
+
+	@include breakpoint(lg) {
+		&-lr {
+			margin-left: 71px;
+			margin-right: 71px;
+		}
+
+		@include margin-classes(tb, "3xl");
+		@include margin-classes(tb-reduced, "2xl");	
+	}
+}

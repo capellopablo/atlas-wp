@@ -63,6 +63,7 @@ $danger: $error-500;
  */
 
 $theme-colors: (
+	"white": $white,
 	"primary-50": $primary-50,
 	"primary-100": $primary-100,
 	"primary-200": $primary-200,
@@ -109,207 +110,23 @@ $theme-colors: (
 $font-main: "Onest", sans-serif;
 $font-heading: "Onest", sans-serif;
 $color-main: $black;
+$font-light: 300;
 $font-regular: 400;
 $font-semi-bold: 600;
-$font-bold: 700;
+$font-bold: 800;
 
 $font-weights: (
+	"light": $font-light,
 	"regular": $font-regular,
 	"semi-bold": $font-semi-bold,
 	"bold": $font-bold
-);
-
-// General font sizes and line heights
-
-$font-size-l: 18px;
-$font-size-m: 16px;
-$font-size-s: 14px;
-$font-size-xs: 12px;
-
-$font-size-l-desktop: 20px;
-
-$font-sizes: (
-	l: $font-size-l,
-	m: $font-size-m,
-	s: $font-size-s,
-	xs: $font-size-xs,
-);
-
-$line-height-l: 28px;
-$line-height-m: 24px;
-$line-height-s: 18px;
-$line-height-xs: 16px;
-
-$line-height-l-desktop: 32px;
-
-$line-heights: (
-	l: $line-height-l,
-	m: $line-height-m,
-	s: $line-height-s,
-	xs: $line-height-xs,
-);
-
-// Headings font sizes and line heights
-
-$h1-font-size: 40px;
-$h2-font-size: 36px;
-$h3-font-size: 24px;
-$h4-font-size: 20px;
-$h5-font-size: 20px;
-
-$h1-line-height: 48px;
-$h2-line-height: 40px;
-$h3-line-height: 28px;
-$h4-line-height: 24px;
-$h5-line-height: 24px;
-
-$h1-font-size-desktop: 56px;
-$h2-font-size-desktop: 48px;
-$h3-font-size-desktop: 36px;
-$h4-font-size-desktop: 28px;
-
-$h1-line-height-desktop: 64px;
-$h2-line-height-desktop: 56px;
-$h3-line-height-desktop: 40px;
-$h4-line-height-desktop: 36px;
-
-$font-rules: (
-		("h1, .heading-1"): (
-		"sm": ("font-size": $h1-font-size,
-			"line-height": $h1-line-height,
-		),
-		"lg": ("font-size": $h1-font-size-desktop,
-			"line-height": $h1-line-height-desktop,
-		),
-	),
-		("h2, .heading-2"): (
-		"sm": ("font-size": $h2-font-size,
-			"line-height": $h2-line-height,
-		),
-		"lg": ("font-size": $h2-font-size-desktop,
-			"line-height": $h2-line-height-desktop,
-		),
-	),
-		("h3, .heading-3"): (
-		"sm": ("font-size": $h3-font-size,
-			"line-height": $h3-line-height,
-		),
-		"lg": ("font-size": $h3-font-size-desktop,
-			"line-height": $h3-line-height-desktop,
-		),
-	),
-		("h4, .heading-4"): (
-		"sm": ("font-size": $h4-font-size,
-			"line-height": $h4-line-height,
-		),
-		"lg": ("font-size": $h4-font-size-desktop,
-			"line-height": $h4-line-height-desktop,
-		),
-	),
-		("h5, .heading-5"): (
-		"font-size": $h5-font-size,
-		"line-height": $h5-line-height,
-	),
-		(".heading-regular"): (
-		"font-weight": $font-regular,
-	),
-		("a"): ("font-size": $font-size-m,
-		"line-height": $line-height-m,
-		"color": inherit,
-	),
-		(".text-xs"): ("font-size": $font-size-xs,
-		"line-height": $line-height-xs,
-	),
-		(".text-s"): ("font-size": $font-size-s,
-		"line-height": $line-height-s,
-	),
-		(".text-m"): ("font-size": $font-size-m,
-		"line-height": $line-height-m,
-	),
-		(".text-l"): (
-		"sm": ("font-size": $font-size-l,
-			"line-height": $line-height-l,
-		),
-		"lg": ("font-size": $font-size-l-desktop,
-			"line-height": $line-height-l-desktop,
-		),
-	),
-		(".text-bold"): ("font-weight": $font-semi-bold,
-	),
-);
-
-// -- Layout Grid --
-
-$grid-columns: (
-	sm: 4,
-	md: 8,
-	lg: 12,
-	xl: 12,
-);
-
-$grid-gutters: (
-	sm: 16px,
-	md: 24px,
 );
 
 // -- Containers and breakpoints --
 // Breakpoints
 
 $breakpoints: (
-	md: "600px",
-	lg: "1279px",
+	sm: "360px",
+	md: "768px",
+	lg: "1366px",
 );
-
-// Containers
-$container-max-widths: (
-	sm: 100%,
-	md: 100%,
-	lg: 1280px,
-);
-
-$container-paddings: (
-	sm: 16px,
-	md: 32px,
-	lg: 28px,
-);
-
-// -- Spacing rules --
-
-$spacing: (
-	"0": 0,
-	"3xs": 2px,
-	"2xs": 4px,
-	"xs": 8px,
-	"s": 12px,
-	"m": 16px,
-	"l": 24px,
-	"xl": 32px,
-	"2xl": 48px,
-	"3xl": 60px,
-	"4xl": 88px,
-);
-
-$spacing-desktop: (
-	"0": 0,
-	"2xs": 8px,
-	"xs": 12px,
-	"s": 16px,
-	"m": 24px,
-	"l": 32px,
-);
-
-// -- Box Shadows --
-
-$elevations: (
-	"1": 0 1px 1px rgba($secondary-800, 0.10),
-	"2": 0 6px 12px rgba($secondary-800, 0.16),
-	"3": 0 16px 24px rgba($secondary-800, 0.16),
-);
-
-// -- Border Radius --
-
-$border-radius: (
-	s: 8px,
-	m: 16px,
-	l: 24px,
-)

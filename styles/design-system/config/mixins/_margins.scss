@@ -1,0 +1,17 @@
+@use "sass:map";
+
+/* Margins mixins */
+@mixin margin-classes($direction, $size) {
+    &-#{$direction} {
+        @if $direction == 'lr' {
+            margin-left: map.get($spacing, $size);
+            margin-right: map.get($spacing, $size);
+        } @else if $direction == 'tb' {
+            margin-top: map.get($spacing, $size);
+            margin-bottom: map.get($spacing, $size);
+        } @else if $direction == 'tb-reduced' {
+            margin-top: map.get($spacing, $size);
+            margin-bottom: map.get($spacing, $size);
+        }
+    }
+}
