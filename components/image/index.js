@@ -32,6 +32,7 @@ const Image = ({
 	alt = '',
 	width = '',
 	height = '',
+	container,
   }) => {
 	const aspectRatio = convertAspectToPercentage(aspect);
 
@@ -60,8 +61,8 @@ const Image = ({
 		)}
 
 		 <picture
-			className={`c-image image-mask ${className}`}
-			style={aspectRatio ? { '--aspect-ratio': `${aspectRatio}%` } : ''}
+			className={`c-image ${container ? `image-mask` : ''} ${className}`}
+			style={aspectRatio ? { '--aspect-ratio': `${aspectRatio}%` } : null}
 		>
 			{srcset.map((source, index) => (
 				<source
