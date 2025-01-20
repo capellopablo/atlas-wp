@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
  * @returns {boolean} - A boolean indicating whether the media query matches the current viewport.
  * 
  */
-const useMediaQuery = (query) => {
+export const useMediaQuery = (query) => {
 	const [matches, setMatches] = useState(false);
 
 	useEffect(() => {
@@ -25,5 +25,3 @@ const useMediaQuery = (query) => {
 
 	return matches;
 }
-
-export default useMediaQuery;

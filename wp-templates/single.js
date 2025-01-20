@@ -39,7 +39,6 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
   ${Header.fragments.entry}
-  ${blocks.AprendeBlocksHero.fragments.entry}
   ${blocks.AprendeBlocksDiploma.fragments.entry}
   ${blocks.AprendeBlocksBenefits.fragments.entry}
   ${blocks.AprendeBlocksStatistics.fragments.entry}
@@ -63,7 +62,6 @@ Component.query = gql`
         renderedHtml
         id: clientId
         parentClientId
-        ...AprendeBlocksHeroFragment
         ...AprendeBlocksDiplomaFragment
         ...AprendeBlocksBenefitsFragment
         ...AprendeBlocksStatisticsFragment
