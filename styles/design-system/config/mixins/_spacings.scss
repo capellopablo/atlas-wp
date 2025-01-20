@@ -1,0 +1,72 @@
+@use "sass:map";
+
+/* Gap mixins */
+@mixin gap-system($breakpoints-rules, $values) {
+  @each $breakpoint, $value in $breakpoints-rules {
+    // For default breakpoint (mobile first)
+    @if $breakpoint == "sm" {
+      @each $property, $breakpoint-value in $value {
+        #{$property}: $breakpoint-value;
+      }
+    }
+    // For rest of breakpoints
+    @else {
+      @include breakpoint($breakpoint) {
+        @each $property, $breakpoint-value in $value {
+          #{$property}: $breakpoint-value;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-gap-system($gap-rules) {
+  @each $class, $breakpoints in $gap-rules {
+    .#{$class} {
+      @each $breakpoint, $value in $breakpoints {
+        @if $breakpoint == "sm" {
+          @each $property, $breakpoint-value in $value {
+            #{$property}: $breakpoint-value;
+          }
+        } @else {
+          @include breakpoint($breakpoint) {
+            @each $property, $breakpoint-value in $value {
+              #{$property}: $breakpoint-value;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Margin mixins */
+@mixin margin-classes($direction, $size) {
+  @if $direction == "lr" {
+    margin-left: map.get($spacing, $size);
+    margin-right: map.get($spacing, $size);
+  } @else if $direction == "tb" {
+    margin-top: map.get($spacing, $size);
+    margin-bottom: map.get($spacing, $size);
+  }
+}
+
+@mixin generate-margin-system($margin-rules) {
+  @each $class, $breakpoints in $margin-rules {
+    .#{$class} {
+      @each $breakpoint, $value in $breakpoints {
+        @if $breakpoint == "sm" {
+          @each $property, $breakpoint-value in $value {
+            #{$property}: $breakpoint-value;
+          }
+        } @else {
+          @include breakpoint($breakpoint) {
+            @each $property, $breakpoint-value in $value {
+              #{$property}: $breakpoint-value;
+            }
+          }
+        }
+      }
+    }
+  }
+}

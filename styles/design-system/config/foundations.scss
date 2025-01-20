@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:map";
 
 // -- Prefix --
 $prefix: aprende-;
@@ -105,6 +106,14 @@ $theme-colors: (
 	"error-500": $error-500,
 );
 
+// Breakpoints
+
+$breakpoints: (
+	sm: "360px",
+	md: "768px",
+	lg: "1366px",
+);
+
 // -- Typography --
 
 $font-main: "Onest", sans-serif;
@@ -122,11 +131,76 @@ $font-weights: (
 	"bold": $font-bold
 );
 
-// -- Containers and breakpoints --
-// Breakpoints
+// -- Gap system --
 
-$breakpoints: (
-	sm: "360px",
-	md: "768px",
-	lg: "1366px",
+$gap-sizes: (
+	2xsmall: map.get($spacing, "2xs"),
+	xsmall: map.get($spacing, "xs"),
+	small: map.get($spacing, "s"),
+	medium: map.get($spacing, "m"),
+	large: map.get($spacing, "l"),
+	xlarge: map.get($spacing, "xl"),
+	
 );
+
+$gap-rules: (
+	"gap-2xsmall": (
+		"sm": ("gap": map.get($spacing, "2xs")),
+		"lg": ("gap": map.get($spacing, "xs"),),
+	),
+	"gap-xsmall": (
+		"sm": ("gap": map.get($spacing, "xs")),
+		"lg": ("gap": map.get($spacing, "s")),
+	),
+	"gap-small": (
+		"sm": ("gap": map.get($spacing, "s"),),
+		"lg": ("gap": map.get($spacing, "m")),
+	),
+	"gap-medium": (
+		"sm": ("gap": map.get($spacing, "m")),
+		"lg": ("gap": map.get($spacing, "l")),
+	),
+	"gap-large": (
+		"sm": ("gap": map.get($spacing, "l")),
+		"lg": ("gap": map.get($spacing, "xl")),
+	)
+);
+
+// -- Margins system --
+
+$margin-rules:(
+	"margin-l-r": (
+		"sm": (
+			"margin-left": map.get($spacing, "m"),
+			"margin-right": map.get($spacing, "m"),
+		),
+		"md": (
+			"margin-left": map.get($spacing, "l"),
+			"margin-right": map.get($spacing, "l"),
+		),
+		"lg": (
+			"margin-left": auto,
+			"margin-right": auto,
+		),
+	),
+	"margin-t-b": (
+		"sm": (
+			"margin-top": map.get($spacing, "2xl"),
+			"margin-bottom": map.get($spacing, "2xl"),
+		),
+		"lg": (
+			"margin-top": map.get($spacing, "3xl"),
+			"margin-bottom": map.get($spacing, "3xl"),
+		),
+	),
+	"margin-t-b-reduced": (
+		"sm": (
+			"margin-top": map.get($spacing, "xl"),
+			"margin-bottom": map.get($spacing, "xl"),
+		),
+		"lg": (
+			"margin-top": map.get($spacing, "2xl"),
+			"margin-bottom": map.get($spacing, "2xl"),
+		),
+	),
+)

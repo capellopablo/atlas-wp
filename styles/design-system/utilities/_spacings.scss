@@ -1,0 +1,14 @@
+// -- Gap rules --
+
+$gap-utilities: (
+	"gap": (
+		"prefix": "gap",
+		"values": $gap-sizes,
+	),
+);
+@include generate-utilities($gap-utilities);
+@include generate-gap-system($gap-rules);
+
+// -- Margin rules --
+
+@include generate-margin-system($margin-rules);
