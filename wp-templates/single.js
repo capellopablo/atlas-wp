@@ -21,12 +21,6 @@ export default function Component(props) {
         <title>{`${title} - ${siteTitle}`}</title>
       </Head>
 
-      <Header
-        siteTitle={siteTitle}
-        siteDescription={siteDescription}
-        menuItems={menuItems}
-      />
-
       <main>
         <WordPressBlocksViewer blocks={editorBlocks} />
       </main>
@@ -52,6 +46,7 @@ Component.query = gql`
   ${blocks.AprendeBlocksJumbotron.fragments.entry}
   ${blocks.AprendeBlocksText.fragments.entry}
   ${blocks.AprendeBlocksAccordion.fragments.entry}
+  ${blocks.AprendeBlocksHeader.fragments.entry}
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
     post(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
@@ -75,6 +70,7 @@ Component.query = gql`
         ...AprendeBlocksJumbotronFragment
         ...AprendeBlocksTextFragment
         ...AprendeBlocksAccordionFragment
+        ...AprendeBlocksHeaderFragment
       }
     }
     ...HeaderFragment

@@ -5,6 +5,7 @@ import AprendeBlocksStatistics from './AprendeBlocksStatistics';
 import AprendeBlocksJumbotron from './AprendeBlocksJumbotron';
 import AprendeBlocksText from './AprendeBlocksText';
 import AprendeBlocksAccordion from './AprendeBlocksAccordion';
+import AprendeBlocksHeader from './AprendeBlocksHeader';
 
 export default {
   'AprendeBlocksHero': AprendeBlocksHero,
@@ -14,4 +15,5 @@ export default {
   'AprendeBlocksJumbotron': AprendeBlocksJumbotron,
   'AprendeBlocksText': AprendeBlocksText,
   'AprendeBlocksAccordion': AprendeBlocksAccordion,
+  'AprendeBlocksHeader': AprendeBlocksHeader,
 }

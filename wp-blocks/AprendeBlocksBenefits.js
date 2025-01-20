@@ -7,7 +7,7 @@ export default function AprendeBlocksBenefits (props) {
 	return (
 		<section
 			className="block b-benefits-v2 l-blurbs-icon bg-secondary-700 hide-us-fl"
-			id="" data-apt-e-seen="1"
+			data-section-id="benefits-standard-block" data-apt-e-seen="1"
 			data-apt-key="b-benefits-v2-l-blurbs-icon">
 			<div className="container">
 				<div
