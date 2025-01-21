@@ -31,21 +31,25 @@ export default function AprendeBlocksAccordion (props) {
 
 	return (
 		<section 
-			className="block b-accordion-v2 l-default hide-us-fl" id=""
+			className="block b-accordion-v2 l-default margin-t-b"
+			id="b-accordion-v2"
 			data-apt-e-seen="1"
 			data-apt-key="b-accordion-v2-l-default">
 			<div className="container">
-				<div
-					className="b-accordion-v2_heading ta-center mb-m mx-auto col-lg-8 p-0">
-					<h3 className="c-heading"
-						dangerouslySetInnerHTML={{__html: title}}/>
-				</div>
-				<div className="b-accordion-v2_container">
-					<Accordion
-						accordions={accordionItemsFormated}
-						className="gap-xs"
-					/>
-				</div>
+				{title && (
+					<div className="b-accordion-v2_heading ta-center mb-m mx-auto col-lg-8 p-0">
+						<h3 className="c-heading text-secondary"
+							dangerouslySetInnerHTML={{__html: title}}/>
+					</div>
+				)}
+				{accordionItemsFormated.length > 0 && (
+					<div className="b-accordion-v2_container mx-auto my-0">
+						<Accordion
+							accordions={accordionItemsFormated}
+							className="gap-xsmall text-m"
+						/>
+					</div>
+				)}
 			</div>
 		</section>
 	);

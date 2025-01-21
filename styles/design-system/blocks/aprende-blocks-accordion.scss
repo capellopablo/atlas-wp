@@ -5,7 +5,6 @@
 @import "../config/mixins/list";
 
 .b-accordion-v2 {
-    padding: map.get($spacing, "2xl") 0;
 
     /* stylelint-disable */
     .c-accordion_button_label {
@@ -16,19 +15,6 @@
         font-size: inherit;
     }
 
-    .c-accordion {
-        &_content {
-            @include list-default-styles();
-
-            font-size: $font-size-m;
-            line-height: $line-height-m;
-        }
-    }
-
-    @include breakpoint(md) {
-        padding: map.get($spacing, "3xl") 0;
-    }
-
     // Layout: Default
     &.l-default {
 
@@ -36,7 +22,6 @@
 
 			&_container {
 				max-width: 808px;
-				margin: 0 auto;
 			}
 		}
 
