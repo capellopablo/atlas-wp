@@ -1,0 +1,31 @@
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+
+.b-footer {
+
+    .container {
+        border-top: 1px solid var(--aprende--secondary-200);
+        flex-wrap: wrap;
+
+        @include breakpoint(max-md) {
+            justify-content: center;
+
+            .b-footer {
+
+                &_logo {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    &_items {
+        flex-wrap: wrap;
+    }
+
+    .c-button {
+        font-weight: 400;
+        white-space: nowrap;
+    }
+}
