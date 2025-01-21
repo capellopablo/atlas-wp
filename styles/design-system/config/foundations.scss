@@ -1,0 +1,206 @@
+@use "sass:list";
+@use "sass:map";
+
+// -- Prefix --
+$prefix: aprende-;
+
+// -- Color Palette --
+$white: #FFFFFF;
+$primary-50: #EBF7FF;
+$primary-100: #D6EFFF;
+$primary-200: #ADDEFF;
+$primary-300: #85CEFF;
+$primary-400: #5CBDFF;
+$primary-500: #33ADFF; 
+$primary-600: #2990D6;
+$primary: #1F74AD; //Primary 700
+$primary-800: #145785;
+$primary-900: #0A3B5C;
+$primary-1000: #001E33;
+
+$secondary-50: #CED0E8;
+$secondary-100: #ADAFCC;
+$secondary-200: #8C8FAF;
+$secondary-300: #6C6E93;
+$secondary-400: #4B4E76;
+$secondary: #2A2D5A; //Secondary 500
+$secondary-600: #222448;
+$secondary-700: #191B36;
+$secondary-800: #111224;
+$secondary-900: #080912;
+
+$tertiary-100: #EFF2F4;
+$tertiary-200: #E6EBEE;
+$tertiary-300: #D6DEE3;
+$tertiary-400: #B5BEC3;
+$tertiary: #939DA3; //Tertiary 500
+$tertiary-600: #727D84;
+$tertiary-700: #616D74;
+$tertiary-800: #505C64;
+$tertiary-900: #404C54;
+$tertiary-1000: #30373C;
+$black: #202528;
+
+$success-100: #CEF2DA;
+$success-500: #32C25F;
+$success-900: #144E26;
+$warning-100: #FFE7B2;
+$warning-500: #E59E00;
+$error-100: #FFE0E0;
+$error-500: #E00000;
+
+$success: $success-500;
+$warning: $warning-500;
+$danger: $error-500;
+
+/**
+ * Colors used in the theme and their defaults based on the color palette.
+ *
+ * These colors are used throughout the theme and can be used in the
+ * theme's CSS. The colors are divided into two sets, one for the
+ * primary and one for the secondary. The primary colors are used
+ * for the main elements of the site, while the secondary colors
+ * are used for less important elements.
+ */
+
+$theme-colors: (
+	"white": $white,
+	"primary-50": $primary-50,
+	"primary-100": $primary-100,
+	"primary-200": $primary-200,
+	"primary-300": $primary-300,
+	"primary-400": $primary-400,
+	"primary-500": $primary,
+	"primary-600": $primary-600,
+	"primary": $primary,
+	"primary-800": $primary-800,
+	"primary-900": $primary-900,
+	"primary-1000": $primary-1000,
+	"secondary-50": $secondary-50,
+	"secondary-100": $secondary-100,
+	"secondary-200": $secondary-200,
+	"secondary-300": $secondary-300,
+	"secondary-400": $secondary-400,
+	"secondary": $secondary,
+	"secondary-600": $secondary-600,
+	"secondary-700": $secondary-700,
+	"secondary-800": $secondary-800,
+	"secondary-900": $secondary-900,
+	"tertiary-100": $tertiary-100,
+	"tertiary-200": $tertiary-200,
+	"tertiary-300": $tertiary-300,
+	"tertiary-400": $tertiary-400,
+	"tertiary": $tertiary,
+	"tertiary-600": $tertiary-600,
+	"tertiary-700": $tertiary-700,
+	"tertiary-800": $tertiary-800,
+	"tertiary-900": $tertiary-900,
+	"tertiary-1000": $tertiary-1000,
+	"black": $black,
+	"success-100": $success-100,
+	"success-500": $success-500,
+	"success-900": $success-900,
+	"warning-100": $warning-100,
+	"warning-500": $warning-500,
+	"error-100": $error-100,
+	"error-500": $error-500,
+);
+
+// Breakpoints
+
+$breakpoints: (
+	sm: "360px",
+	md: "768px",
+	lg: "1366px",
+);
+
+// -- Typography --
+
+$font-main: "Onest", sans-serif;
+$font-heading: "Onest", sans-serif;
+$color-main: $black;
+$font-light: 300;
+$font-regular: 400;
+$font-semi-bold: 600;
+$font-bold: 800;
+
+$font-weights: (
+	"light": $font-light,
+	"regular": $font-regular,
+	"semi-bold": $font-semi-bold,
+	"bold": $font-bold
+);
+
+// -- Gap system --
+
+$gap-sizes: (
+	2xsmall: map.get($spacing, "2xs"),
+	xsmall: map.get($spacing, "xs"),
+	small: map.get($spacing, "s"),
+	medium: map.get($spacing, "m"),
+	large: map.get($spacing, "l"),
+	xlarge: map.get($spacing, "xl"),
+	
+);
+
+$gap-rules: (
+	"gap-2xsmall": (
+		"sm": ("gap": map.get($spacing, "2xs")),
+		"lg": ("gap": map.get($spacing, "xs"),),
+	),
+	"gap-xsmall": (
+		"sm": ("gap": map.get($spacing, "xs")),
+		"lg": ("gap": map.get($spacing, "s")),
+	),
+	"gap-small": (
+		"sm": ("gap": map.get($spacing, "s"),),
+		"lg": ("gap": map.get($spacing, "m")),
+	),
+	"gap-medium": (
+		"sm": ("gap": map.get($spacing, "m")),
+		"lg": ("gap": map.get($spacing, "l")),
+	),
+	"gap-large": (
+		"sm": ("gap": map.get($spacing, "l")),
+		"lg": ("gap": map.get($spacing, "xl")),
+	)
+);
+
+// -- Margins system --
+
+$margin-rules:(
+	"margin-l-r": (
+		"sm": (
+			"margin-left": map.get($spacing, "m"),
+			"margin-right": map.get($spacing, "m"),
+		),
+		"md": (
+			"margin-left": map.get($spacing, "l"),
+			"margin-right": map.get($spacing, "l"),
+		),
+		"lg": (
+			"margin-left": auto,
+			"margin-right": auto,
+		),
+	),
+	"margin-t-b": (
+		"sm": (
+			"margin-top": map.get($spacing, "2xl"),
+			"margin-bottom": map.get($spacing, "2xl"),
+		),
+		"lg": (
+			"margin-top": map.get($spacing, "3xl"),
+			"margin-bottom": map.get($spacing, "3xl"),
+		),
+	),
+	"margin-t-b-reduced": (
+		"sm": (
+			"margin-top": map.get($spacing, "xl"),
+			"margin-bottom": map.get($spacing, "xl"),
+		),
+		"lg": (
+			"margin-top": map.get($spacing, "2xl"),
+			"margin-bottom": map.get($spacing, "2xl"),
+		),
+	),
+)

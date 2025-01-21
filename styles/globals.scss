@@ -1,12 +1,13 @@
-@import "~@aprende-com/design-system/scss/config/variables";
+@import "../styles/design-system/config/foundations.scss";
 @import "~@aprende-com/design-system/scss/config/mixins";
 @import "~@aprende-com/design-system/scss/base";
+@import "../styles/design-system/fonts/font-face-onest.scss";
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI,
+  font-family: Onest, -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
 }
@@ -36,4 +37,3 @@ a {
   margin-right: auto;
 }
 
-@import "./source-sans-pro.css";
