@@ -26,7 +26,6 @@
                     }
                 }
             }
-
         }
     }
 
@@ -43,6 +42,7 @@
                 &_col {
                     padding: 0 map.get($spacing, "s");
                 }
+                
             }
 
             &.disabled-slider-mobile {
