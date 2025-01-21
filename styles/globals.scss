@@ -1,6 +1,7 @@
 @import "../styles/design-system/config/foundations.scss";
 @import "~@aprende-com/design-system/scss/config/mixins";
 @import "~@aprende-com/design-system/scss/base";
+@import "../styles/design-system/fonts/font-face-onest.scss";
 
 html,
 body {
@@ -36,4 +37,3 @@ a {
   margin-right: auto;
 }
 
-@import "../styles/design-system/fonts/font-face-onest.scss";
