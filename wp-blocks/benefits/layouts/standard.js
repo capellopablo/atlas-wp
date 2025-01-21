@@ -10,8 +10,8 @@ const Standard = ({props}) => {
 		<section className="block b-benefits-v2 l-standard bg-white" data-apt-e-seen="1" data-apt-key="b-benefits-v2-l-blurbs-icon">
 			<div className="container">
 				<div className="b-benefits-v2_heading mb-2xl mx-auto ta-center col-lg-8 p-0">
-					<h3 className="c-heading heading-3 gap-s">{title}</h3>
-					<p className="c-heading heading-5 gap-l">{subtitle}</p>
+					<p className="c-heading heading-3 gap-s">{title}</p>
+					<p className="pt-s">{subtitle}</p>
 				</div>
 
 				<div className="b-benefits-v2_container d-flex mt-xl">

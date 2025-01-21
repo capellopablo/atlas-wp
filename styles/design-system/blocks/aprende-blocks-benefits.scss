@@ -4,11 +4,17 @@
 @import "../config/variables";
 @import "../config/mixins/breakpoints";
 
+$primary-color: #2A2D5A;
+
 .b-benefits-v2 {
 	padding: map.get($spacing, "2xl") 0;
 
 	&_container { 
 		flex-wrap: wrap;
+	}
+
+	.heading-3 {
+		color: $primary-color;
 	}
 
 	&.l-standard {
@@ -56,6 +62,7 @@
 				&_content,
 				&_items {
 					flex-direction: row;
+					justify-content: right;
 				}
 
 			}

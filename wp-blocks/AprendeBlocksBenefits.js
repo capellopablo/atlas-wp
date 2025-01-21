@@ -22,6 +22,7 @@ AprendeBlocksBenefits.fragments = {
 				blurbsItems
 				blurbsTitle
 				blurbsSubtitle
+				background
 			}
 		}
 	`,
