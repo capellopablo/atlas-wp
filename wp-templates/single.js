@@ -52,6 +52,7 @@ Component.query = gql`
   ${blocks.AprendeBlocksJumbotron.fragments.entry}
   ${blocks.AprendeBlocksText.fragments.entry}
   ${blocks.AprendeBlocksAccordion.fragments.entry}
+  ${blocks.AprendeBlocksCustomGrid.fragments.entry}
   query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
     post(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
@@ -75,6 +76,7 @@ Component.query = gql`
         ...AprendeBlocksJumbotronFragment
         ...AprendeBlocksTextFragment
         ...AprendeBlocksAccordionFragment
+        ...AprendeBlocksCustomGridFragment
       }
     }
     ...HeaderFragment

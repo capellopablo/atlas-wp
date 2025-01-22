@@ -1,0 +1,109 @@
+/** Config */
+@use "sass:map";
+@import "../config/variables";
+@import "../config/mixins/breakpoints";
+@import "../config/mixins/list";
+
+.b-custom-grid-v2 {
+
+    &.l-standard {
+		padding: map.get($spacing, "3xl") 0;
+
+        .custom-grid {
+
+            &-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+                gap: map.get($spacing, "m");
+                max-width: fit-content;
+                margin: 0 auto;
+
+                &.grid-1-fr {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+
+            &-item {
+                max-width: 150px;
+                max-height: 156px;
+
+                .image-container {
+                    width: 100%;
+                    aspect-ratio: 16 / 9;
+                    border-radius: 0;
+                }
+        
+                .c-image {
+                    border-radius: 0;
+                    max-width: 150px;
+                    max-height: 156px;
+                }  
+            }         
+        }
+
+        .swiper {
+            padding-bottom: map.get($spacing, "xl");
+            max-width: 672px;
+
+            .swiper-pagination {
+                bottom: -8px;
+
+                .swiper-pagination-bullet {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+
+            &.centered {
+                .swiper-wrapper {
+                    justify-content: center;
+                }
+            }
+
+            .swiper-wrapper {
+                max-width: 672px;
+                justify-content: start;
+            }
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+                flex-shrink: 0;
+                max-width: 150px;
+
+                .image-container {
+                    aspect-ratio: 16 / 9;
+                    border-radius: 0;
+                }
+        
+                .c-image {
+                    border-radius: 0;
+                    max-width: 150px;
+                    max-height: 156px;
+                }
+            }
+        }
+
+        @include breakpoint(md) {
+            padding: map.get($spacing, "4xl") 0;
+
+            .custom-grid {
+
+                &-container {
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: map.get($spacing, "m");
+
+                    &.grid-3-fr {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+
+                    &.grid-2-fr {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }      
+            }
+        }
+    }
+}
+
