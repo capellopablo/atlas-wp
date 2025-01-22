@@ -38,8 +38,7 @@ export default function AprendeBlocksAccordion (props) {
 			<div className="container">
 				{title && (
 					<div className="b-accordion-v2_heading ta-center mb-m mx-auto col-lg-8 p-0">
-						<h3 className="c-heading text-secondary"
-							dangerouslySetInnerHTML={{__html: title}}/>
+						<h3 className="c-heading text-secondary" dangerouslySetInnerHTML={{__html: title}}/>
 					</div>
 				)}
 				{accordionItemsFormated.length > 0 && (
