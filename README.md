@@ -1,23 +1,75 @@
-# Faust Scaffold
+# Atlas WordPress Theme with Faust.js
 
-This repository contains a starter scaffolding to get you up and running quickly on [WP Engine's Atlas platform](https://wpengine.com/atlas/) with a WordPress site skeleton for more advanced developers.
+Este repositorio contiene el tema de WordPress desarrollado con Faust.js para Atlas.
 
-## For more information
+## Tecnologías Utilizadas
 
-For more information on this Blueprint please check out the following sources:
+- [Faust.js](https://faustjs.org/) - Framework headless para WordPress
+- [Next.js](https://nextjs.org/) - Framework de React para producción
+- [WordPress](https://wordpress.org/) - CMS headless
+- [Atlas Content Modeler (ACM)](https://www.wpgraphql.com/2021/07/08/introducing-atlas-content-modeler) - Plugin para modelado de contenido
+- [WPGraphQL](https://www.wpgraphql.com/) - API GraphQL para WordPress
 
-- [WP Engine's Atlas Platform](https://wpengine.com/atlas/)
-- [Faust.js](https://faustjs.org)
-- [WPGraphQL](https://www.wpgraphql.com)
-- [Atlas Content Modeler](https://wordpress.org/plugins/atlas-content-modeler/)
-- [WP Engine's Atlas developer community](https://developers.wpengine.com)
+## Requisitos Previos
 
-### Contributor License Agreement
+- Node.js 16.x o superior
+- WordPress instalado y configurado
+- Plugin Atlas Content Modeler instalado y activado
+- Plugin WPGraphQL instalado y activado
 
-All external contributors to WP Engine products must have a signed Contributor License Agreement (CLA) in place before the contribution may be accepted into any WP Engine codebase.
+## Configuración del Proyecto
 
-1. [Submit your name and email](https://wpeng.in/cla/)
-2. 📝 Sign the CLA emailed to you
-3. 📥 Receive copy of signed CLA
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/capellopablo/atlas-wp.git
+cd atlas-wp
+```
 
-❤️ Thank you for helping us fulfill our legal obligations in order to continue empowering builders through headless WordPress.
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Configurar variables de entorno:
+   - Copia el archivo `.env.example` a `.env.local`
+   - Actualiza las variables con tus credenciales de WordPress
+
+4. Importar el blueprint de ACM:
+```bash
+wp acm blueprint import acm-blueprint.zip
+```
+
+## Desarrollo Local
+
+1. Iniciar el servidor de desarrollo:
+```bash
+npm run dev
+```
+
+2. Visitar `http://localhost:3000`
+
+El proyecto utiliza Next.js con hot-reloading, por lo que los cambios se reflejarán automáticamente en el navegador.
+
+## Estructura del Proyecto
+
+- `/app` - Componentes y lógica de la aplicación
+- `/components` - Componentes React reutilizables
+- `/pages` - Rutas y páginas de Next.js
+- `/styles` - Archivos de estilos
+- `/wp-blocks` - Bloques personalizados de WordPress
+- `/wp-templates` - Plantillas de WordPress
+
+## Comandos Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta el linter
+
+## Desarrollo y Contribución
+
+Para más detalles sobre el desarrollo y contribución al proyecto, consulta [DEVELOPMENT.md](DEVELOPMENT.md).
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles. 
