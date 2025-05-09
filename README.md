@@ -1,23 +1,69 @@
-# Faust Scaffold
+# Atlas WordPress Project
 
-This repository contains a starter scaffolding to get you up and running quickly on [WP Engine's Atlas platform](https://wpengine.com/atlas/) with a WordPress site skeleton for more advanced developers.
+## Overview
+This project is a headless WordPress site built with Faust.js, a framework for WordPress development in Next.js. It serves as a scaffold for new WordPress projects and includes Atlas Content Modeler integration.
 
-## For more information
+## Technologies
+- **[Faust.js](https://faustjs.org/)** (v3.1.0): Framework for building headless WordPress sites with Next.js
+- **[Next.js](https://nextjs.org/)** (v14.2.14): React framework for server-side rendering and static site generation
+- **[React](https://reactjs.org/)** (v18.3.1): JavaScript library for building user interfaces
+- **[Apollo Client](https://www.apollographql.com/docs/react/)** (v3.10.4): GraphQL client for React applications
+- **[WordPress](https://wordpress.org/)**: Headless CMS backend
+- **[Atlas Content Modeler](https://www.atlascontentmodeler.com/)**: Custom post type builder for WordPress
+- **[SASS](https://sass-lang.com/)** (v1.77.3): CSS preprocessor
+- **[Formik](https://formik.org/)** (v2.4.6): Form handling library for React
+- **Aprende Design System** (v1.1.3): Custom design system components
 
-For more information on this Blueprint please check out the following sources:
+## Getting Started with Faust.js
 
-- [WP Engine's Atlas Platform](https://wpengine.com/atlas/)
-- [Faust.js](https://faustjs.org)
-- [WPGraphQL](https://www.wpgraphql.com)
-- [Atlas Content Modeler](https://wordpress.org/plugins/atlas-content-modeler/)
-- [WP Engine's Atlas developer community](https://developers.wpengine.com)
+### Prerequisites
+- Node.js (>=18)
+- npm (>=8)
+- A WordPress instance with WPGraphQL plugin installed
 
-### Contributor License Agreement
+### Installation
+1. Clone this repository
+```bash
+git clone <repository-url>
+cd atlas-wp
+```
 
-All external contributors to WP Engine products must have a signed Contributor License Agreement (CLA) in place before the contribution may be accepted into any WP Engine codebase.
+2. Install dependencies
+```bash
+npm install
+```
 
-1. [Submit your name and email](https://wpeng.in/cla/)
-2. 📝 Sign the CLA emailed to you
-3. 📥 Receive copy of signed CLA
+3. Configure environment variables
+Create a `.env.local` file in the root directory with the following variables:
+```
+NEXT_PUBLIC_WORDPRESS_URL=<your-wordpress-site-url>
+FAUST_SECRET_KEY=<your-faust-secret-key>
+```
 
-❤️ Thank you for helping us fulfill our legal obligations in order to continue empowering builders through headless WordPress.
+4. Start the development server
+```bash
+npm run dev
+```
+
+The application will be available at http://localhost:3000
+
+### Building for Production
+```bash
+npm run build
+npm run start
+```
+
+## Content Modeling
+This project uses Atlas Content Modeler for custom post types. For more information on importing and exporting ACM blueprints, see the [DEVELOPMENT.md](./DEVELOPMENT.md) file.
+
+## Project Structure
+- `/wp-templates/`: WordPress template files
+- `/wp-blocks/`: WordPress block components
+- `/components/`: React components
+- `/pages/`: Next.js pages
+- `/styles/`: SASS stylesheets
+- `/assets/`: Static assets like images
+
+## Additional Documentation
+- [Faust.js Documentation](https://faustjs.org/docs/introduction)
+- [Atlas Content Modeler Documentation](https://www.atlascontentmodeler.com/wpengine/atlas-content-modeler/) 
